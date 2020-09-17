@@ -3,6 +3,13 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+
+    <!-- 配置web的初始化参数 -->
+    <context-param>
+        <param-name>user</param-name>
+        <param-value>root</param-value>
+    </context-param>
+
     <!-- 在servlet标签配置sevlet的类信息 -->
     <servlet>
         <!-- 配置servlet的名字 -->
@@ -18,5 +25,32 @@
         <url-pattern>/helloWorld</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ConfigServlet</servlet-name>
+        <servlet-class>com.ly.ConfigServlet</servlet-class>
+        <!-- 配置servlet的初始化参数 -->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>kalipy</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConfigServlet</servlet-name>
+        <url-pattern>/ConfigServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ContextServlet</servlet-name>
+        <servlet-class>com.ly.ContextServlet</servlet-class>
+        <!-- 配置servlet的初始化参数 -->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>kalipy</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ContextServlet</servlet-name>
+        <url-pattern>/ContextServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>
