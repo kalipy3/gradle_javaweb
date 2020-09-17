@@ -4,8 +4,11 @@ read.txt
 :Email: kalipy@debian
 :Date: 2020-09-17 23:07
 
-1.src/main/java/com/ly/ConfigServlet.java
+add:
+src/main/java/com/ly/MyEclipseServlet.java
+src/main/webapp/index.html
+src/main/webapp/success.html
 
-2.src/main/java/com/ly/ContextServlet.java
 
-3.web.xml
+src/main/java/com/ly/MyEclipseServlet2.java
+

@@ -53,4 +53,31 @@
         <url-pattern>/ContextServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MyEclipseServlet</servlet-name>
+        <servlet-class>com.ly.MyEclipseServlet</servlet-class>
+        <!-- 配置servlet的初始化参数 -->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>kalipy</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyEclipseServlet</servlet-name>
+        <url-pattern>/MyEclipseServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>MyEclipseServlet2</servlet-name>
+        <servlet-class>com.ly.MyEclipseServlet2</servlet-class>
+        <!-- 配置servlet的初始化参数 -->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>kalipy</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyEclipseServlet2</servlet-name>
+        <url-pattern>/MyEclipseServlet2</url-pattern>
+    </servlet-mapping>
 </web-app>
