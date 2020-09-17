@@ -1,0 +1,22 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <!-- 在servlet标签配置sevlet的类信息 -->
+    <servlet>
+        <!-- 配置servlet的名字 -->
+        <servlet-name>MyFirstServlet</servlet-name>
+        <!-- 配置servlet类的全名 -->
+        <servlet-class>com.ly.MyFirstServlet</servlet-class>
+    </servlet>
+    <!-- servlet映射信息 -->
+    <servlet-mapping>
+        <!-- 刚才配置的servlet的别名 -->
+        <servlet-name>MyFirstServlet</servlet-name>
+        <!-- 这个servlet用来处理哪个请求 http://localhost:8080/xxServlet/helloWorld -->
+        <url-pattern>/helloWorld</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>
