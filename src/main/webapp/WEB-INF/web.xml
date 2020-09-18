@@ -80,4 +80,32 @@
         <servlet-name>MyEclipseServlet2</servlet-name>
         <url-pattern>/MyEclipseServlet2</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>EncodingServlet</servlet-name>
+        <servlet-class>com.ly.EncodingServlet</servlet-class>
+        <!-- 配置servlet的初始化参数 -->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>kalipy</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EncodingServlet</servlet-name>
+        <url-pattern>/EncodingServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>EncodingServlet2</servlet-name>
+        <servlet-class>com.ly.EncodingServlet2</servlet-class>
+        <!-- 配置servlet的初始化参数 -->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>kalipy</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EncodingServlet2</servlet-name>
+        <url-pattern>/EncodingServlet2</url-pattern>
+    </servlet-mapping>
 </web-app>
