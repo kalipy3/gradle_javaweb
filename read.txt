@@ -4,11 +4,25 @@ read.txt
 :Email: kalipy@debian
 :Date: 2020-09-17 23:07
 
+1.登录：
+    访问登录页
+    填写用户名密码 提交表单
+    服务器判断用户是否存在
+    登录失败-->返回用户名或密码错误
+    登录成功-->成功
+
+2.注册：
+    访问注册页
+    填写注册信息 提交
+    服务器保存用户
+    如果用户已经存在-->返回注册失败
+    如果用户不存在-->注册成功
+
 add:
-src/main/java/com/ly/MyEclipseServlet.java
-src/main/webapp/index.html
-src/main/webapp/success.html
-
-
-src/main/java/com/ly/MyEclipseServlet2.java
-
+    LoginServlet.java
+    login.html
+    login-success.html
+    login-error.html
+    regist.html
+    regist-success.html
+    regist-error.html
