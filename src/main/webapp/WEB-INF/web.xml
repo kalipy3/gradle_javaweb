@@ -108,4 +108,18 @@
         <servlet-name>EncodingServlet2</servlet-name>
         <url-pattern>/EncodingServlet2</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PathServlet</servlet-name>
+        <servlet-class>com.ly.PathServlet</servlet-class>
+        <!-- 配置servlet的初始化参数 -->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>kalipy</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PathServlet</servlet-name>
+        <url-pattern>/PathServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
