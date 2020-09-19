@@ -4,11 +4,53 @@ read.txt
 :Email: kalipy@debian
 :Date: 2020-09-17 23:07
 
-add:
-src/main/java/com/ly/MyEclipseServlet.java
-src/main/webapp/index.html
-src/main/webapp/success.html
+BookStore项目
+
+1.需求分析，建立模型
+    建立登录注册相关模型(Bean层)
+        建立用户表
+            当数据库表很多时候，也要分层，一般按照命名规则分层即可
+                create database bookstore_01
+
+                create table bs_user(
+                    id int(12) primary key auto_increment,
+                    username varchar(100) not null unique,
+                    password varchar(100) not null,
+                    email varchar(100)
+                )
+
+        建立对应的User类
+
+    建立Dao层：操作数据库
+        JDBCUtils:用来获取数据库连接,使用c3p0获取连接
+            导包 mysql-connector.jar c3p0.jar commons-dbutils.jar
+
+        建立BaseDao,专门用来被其他的dao继承，BaseDao定义了一些基本的操作
+            BaseDao<T>:
+                public T getBean()
+                public List<T> getBeanList()
+                public int update()
+
+        USerDao:操作User表的Dao类
+            面向接口编程
+                定义一个UserDao接口 定义UserDao有什么方法
+                    UserDao接口：
+                        User getUserByUserNameAndPassWord(User user);
+                        boolean registUser(User user);
+
+    建立Service层
+        UserService:完成登录注册功能
+        面向接口编程
+            UserService接口：
+                User login(User user);
+                boolean regist(User users);
 
 
-src/main/java/com/ly/MyEclipseServlet2.java
+    建立Servlet层：处理用户请求
+        LoginServlet:处理登录请求
+        RegistServlet:处理注册请求
+
+    界面
+        修改响应逻辑
+        
 

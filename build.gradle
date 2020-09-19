@@ -23,6 +23,9 @@ repositories {
 
 dependencies {
     compile "org.apache.tomcat:tomcat-servlet-api:9.0.8"
+    compile "c3p0:c3p0:0.9.1.2"
+    compile "mysql:mysql-connector-java:8.0.21"
+    compile "commons-dbutils:commons-dbutils:1.7"
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13'
