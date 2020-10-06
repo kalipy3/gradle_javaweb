@@ -1,0 +1,14 @@
+read.txt
+
+:Author: kalipy
+:Email: kalipy@debian
+:Date: 2020-10-06 13:39
+
+1.jsp编译后的.class和源文件.java在tomcat的work文件夹下
+
+2.jsp运行原理：
+    index.jsp被tomcat翻译成index_jsp.java,tomcat把它编译为index_jsp.class
+
+    HttpJspBase继承HttpServlet,所以index_jsp就是一个Servlet
+
+    每次请求都调用_jspService()
