@@ -53,3 +53,14 @@ read.txt
     它不是把整个页面复制过来，再一行行的写出去
     org.apache.jasper.runtime.JspRuntimeLibrary.include(request,response,"250.jsp",out,false);//test2_jsp.java
 
+
+
+
+
+
+8.jsp九大隐含对象：
+       见img文件夹
+
+       隐含对象：在页面上可以直接使用的对象
+
+       四大域对象：用来在其它资源共享数据

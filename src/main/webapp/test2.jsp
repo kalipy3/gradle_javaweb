@@ -7,9 +7,17 @@
         <title></title>
     </head>
     <body>
-        <jsp:forward page="250.jsp">
-            <jsp:param value="hanser" name="username" />
-            <jsp:param value="yousa" name="password" />
-        </jsp:forward>
+        <%=config.getServletName()
+        %>
+
+        <%
+        response.getWriter().write("我是中文1");
+        %>
+        <%out.write("<br/>你好1"); %>
+        <%out.write("<br/>你好2"); %>
+        <%out.write("<br/>你好3"); %>
+        <%
+        response.getWriter().write("我是中文2");
+        %>
     </body>
 </html>
