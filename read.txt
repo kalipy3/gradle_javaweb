@@ -24,3 +24,26 @@ read.txt
     <%-- jsp注释 --%>       可见        不可见      不可见
     <!-- html注释 -->       可见        可见        可见
     //java注释              可见        可见        不可见
+
+5.jsp指令：
+    不直接产生任何输出，只是告诉引擎如何处理jsp页面的其余内容
+
+    <%@指令名 属性名=属性值 %>
+        page指令：定义页面如何被解析
+        include指令：静态包含
+        taglib指令：在页面引入标签库
+
+    page指令属性：
+        import:导入java包
+        pageEncoding:指定字符集
+        contentType:设置响应头
+        errorPage:指定发生错误去向的页面
+        session:缺省session="true",当前页面是否参与会话，即是否可以使用session对象
+        isELIgnored:是否忽略el表达式，默认false
+        info:定义页面的描述信息
+
+6.include指令：静态包含
+    <%@ 指令名 属性名=属性值%>
+    <%@ include 属性名=属性值%>
+    把另一个页面包含进来
+
