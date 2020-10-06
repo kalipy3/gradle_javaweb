@@ -64,3 +64,31 @@ read.txt
        隐含对象：在页面上可以直接使用的对象
 
        四大域对象：用来在其它资源共享数据
+   
+
+9.四大域对象:
+    PageContext pageContext = null; 代表当前页面对象
+        1.获取其它隐含对象 pageContext.getXX()
+
+        2.作为域对象共享数据，只能当前页面共享。
+            String key, Object value
+            通过调用域对象.setAttribute(key,value),给相应的域中设置内容
+            域对象.getAttribute(key)获取域中的内容
+
+    HttpServletRequest request;
+        1.在同一个请求对象中共享数据，必须同一次请求
+
+    HttpSession session = null;代表会话对象
+        1.同一次会话共享数据 浏览器打开-开始会话  浏览器关闭-结束会话
+        不同的浏览器不同会话 不同web应用不同会话
+
+    ServletContext application = null;代表整个web应用
+        1.application代表当前web应用
+        web应用只要不卸载(tomcat不重启)都可以访问
+
+    
+    域对象      作用范围        开始时间        结束时间
+    pageContext 当前jsp页面     页面加载        离开页面
+    request     同一个请求      收到请求        响应
+    session     同一个会话      开始会话        结束会话
+    application 当前web应用     web应用被加载   web应用被卸载
