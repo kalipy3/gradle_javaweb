@@ -16,6 +16,7 @@
         <%out.write("<br/>你好1"); %>
         <%out.write("<br/>你好2"); %>
         <%out.write("<br/>你好3"); %>
+        <%out.flush(); %>
         <%
         response.getWriter().write("我是中文2");
         %>
