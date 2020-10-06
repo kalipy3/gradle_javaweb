@@ -7,6 +7,9 @@
         <title></title>
     </head>
     <body>
-        <jsp:include page="250.jsp"></jsp:include>
+        <jsp:forward page="250.jsp">
+            <jsp:param value="hanser" name="username" />
+            <jsp:param value="yousa" name="password" />
+        </jsp:forward>
     </body>
 </html>
