@@ -7,6 +7,6 @@
         <title></title>
     </head>
     <body>
-        <%@include file="250.jsp"%>
+        <jsp:include page="250.jsp"></jsp:include>
     </body>
 </html>

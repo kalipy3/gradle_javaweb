@@ -48,3 +48,8 @@ read.txt
     把另一个页面包含进来,它采用的方式是把整个页面复制到service方法里面。
     jsp引擎不翻译和编译要包含的页面
 
+7.jsp标签：jsp内置了很多标签
+    <jsp:include>:也是在页面包含另一个页面 动态包含
+    它不是把整个页面复制过来，再一行行的写出去
+    org.apache.jasper.runtime.JspRuntimeLibrary.include(request,response,"250.jsp",out,false);//test2_jsp.java
+
