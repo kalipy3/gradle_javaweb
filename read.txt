@@ -94,3 +94,19 @@ BookStore项目
             <input type="hidden" name="method" value="regist">
 
      为了不陷入层层的if判断，我们改用反射也来实现一下
+
+     所有的Servlet都是通过反射来调用相应的方法，所以我们可以抽取一个BaseServlet
+        
+        用户发送请求
+        method=regist/login ----------->    BaseServlet
+                                            doGet()
+           UserServlet    <-----------------doPost()
+           regist()
+           login()
+              |
+              |
+             \|/
+             完成响应
+
+
+
