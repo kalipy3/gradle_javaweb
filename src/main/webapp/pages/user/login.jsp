@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <base href="http://localhost:8080/01Servlet/">
+    <%@include file="/include/base.jsp" %>
 </head>
 <body>
-    <h1>登录页面</h1>
+    <h1>欢迎登录</h1>
+
+    <!-- 如果没有错误消息，显示请输入用户名密码，否则显示错误提示消息 -->
+    <%=request.getAttribute("msg")==null?"请输入用户名密码":request.getAttribute("msg") %>
+
     <form action="user/LoginServlet" method="post">
       <label>用户名：</label>
       <input type="text" name="username" />

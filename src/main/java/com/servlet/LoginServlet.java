@@ -34,11 +34,12 @@ public class LoginServlet extends HttpServlet
         User user = us.login(new User(1, username, password, "3069087972@qq.com"));
         if (user == null) {
             //登录失败 返回登录页面即可 转发
-            req.getRequestDispatcher("/pages/user/login.html").forward(req,resp);
+            req.setAttribute("msg", "用户名密码错误");
+            req.getRequestDispatcher("/pages/user/login.jsp").forward(req,resp);
         } else {
             //登录成功 返回成功页面 重定向
             resp.sendRedirect(req.getContextPath() 
-                    + "/pages/user/login_success.html");
+                    + "/pages/user/login_success.jsp");
         }
     }
 

@@ -37,10 +37,11 @@ public class RegistServlet extends HttpServlet
         if (b) {
             //注册成功 返回成功页面 重定向
             resp.sendRedirect(req.getContextPath() 
-                    + "/pages/user/regist_success.html");
+                    + "/pages/user/regist_success.jsp");
         } else {
             //注册失败 返回注册页面 转发
-            req.getRequestDispatcher("/pages/user/regist.html").forward(req,resp);
+            req.setAttribute("msg", "用户已存在");
+            req.getRequestDispatcher("/pages/user/regist.jsp").forward(req,resp);
         }
     }
 

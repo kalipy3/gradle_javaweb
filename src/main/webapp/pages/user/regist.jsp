@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <base href="http://localhost:8080/01Servlet/">
+    <%@include file="/include/base.jsp" %>
 </head>
 <body>
     <h1>注册页面</h1>
+
+    <span class="errorMsg">
+      <%=request.getAttribute("msg")==null?"请输入用户名":request.getAttribute("msg") %>
+    </span>
+
     <form action="user/RegistServlet" method="post">
       <label>用户名：</label>
       <input type="text" name="username" />
