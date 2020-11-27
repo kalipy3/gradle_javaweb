@@ -92,3 +92,5 @@ BookStore项目
             添加一个隐藏的表单项
             <input type="hidden" name="method" value="login">
             <input type="hidden" name="method" value="regist">
+
+     为了不陷入层层的if判断，我们改用反射也来实现一下

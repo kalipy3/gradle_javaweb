@@ -7,6 +7,7 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -38,14 +39,23 @@ public class UserServlet extends HttpServlet
         //}
         String method = req.getParameter("method");
         System.out.println(method);
-        if ("regist".equals(method)) {
-            //认为当前是注册请求
-            regist(req, resp);
+        //getDeclaredMethod(方法名，参数列表)
+        try {
+            Method method2 = this.getClass().getDeclaredMethod(method, HttpServletRequest.class, HttpServletResponse.class);
+            method2.setAccessible(true);
+            //invoke(对象，参数)
+            method2.invoke(this, req, resp);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        if ("login".equals(method)) {
-            //认为当前是登录请求
-            login(req, resp);
-        }
+        //if ("regist".equals(method)) {
+        //    //认为当前是注册请求
+        //    regist(req, resp);
+        //}
+        //if ("login".equals(method)) {
+        //    //认为当前是登录请求
+        //    login(req, resp);
+        //}
     }
     protected void regist(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
         String username = req.getParameter("username");
