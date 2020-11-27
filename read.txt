@@ -69,8 +69,18 @@ BookStore项目
 3.表单回显
     当登录或注册失败时，回到登录或注册页面我们希望将之前填写的信息保留(表单回显)
 
+4.优化servlet的逻辑
+    一个请求对应了一个Servlet
+        UserService-->login(),regist(),xx()和用户相关的业务逻辑都放在了UserService.
+     问题：
+        可不可以和用户相关的请求(登录，注册..等)放在一个Servlet里
 
+        和用户相关的请求    UserServlet
+        和图书相关的请求    BookServlet
+        ...
 
-
-
-
+     分析：
+        注册，登录 都被UserServlet-->所以注册登录都请求同一个地址
+        可以为请求添加一个method字段，提交的时候,带上method值
+        if(method.eqauls("regist"))调用注册方法
+        if(method.eqauls("login"))调用登录方法

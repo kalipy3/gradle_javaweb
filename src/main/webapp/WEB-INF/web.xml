@@ -20,4 +20,13 @@
         <servlet-name>RegistServlet</servlet-name>
         <url-pattern>/user/RegistServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>com.servlet.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/UserServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
