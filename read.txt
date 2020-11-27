@@ -84,3 +84,6 @@ BookStore项目
         可以为请求添加一个method字段，提交的时候,带上method值
         if(method.eqauls("regist"))调用注册方法
         if(method.eqauls("login"))调用登录方法
+
+     问题：
+        上面看起来好像没什么问题了，但是，get请求时，表单的数据会被带上，而之前请求地址中的数据会被表单数据覆盖掉,请运行代码测试
