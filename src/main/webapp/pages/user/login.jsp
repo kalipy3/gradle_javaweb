@@ -13,7 +13,8 @@
         <!-- 如果没有错误消息，显示请输入用户名密码，否则显示错误提示消息 -->
         <%=request.getAttribute("msg")==null?"请输入用户名密码":request.getAttribute("msg") %>
 
-        <form action="UserServlet?method=login" method="post">
+        <form action="UserServlet" method="post">
+            <input type="hidden" name="method" value="login">
             <label>用户名：</label>
             <input type="text" placeholder="请输入用户名" name="username" value="<%=request.getParameter("username")==null?"":request.getParameter("username")%>" />
             <label>密码：</label>

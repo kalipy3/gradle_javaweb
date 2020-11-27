@@ -87,3 +87,8 @@ BookStore项目
 
      问题：
         上面看起来好像没什么问题了，但是，get请求时，表单的数据会被带上，而之前请求地址中的数据会被表单数据覆盖掉,请运行代码测试
+
+        解决：
+            添加一个隐藏的表单项
+            <input type="hidden" name="method" value="login">
+            <input type="hidden" name="method" value="regist">

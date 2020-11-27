@@ -13,7 +13,8 @@
             <%=request.getAttribute("msg")==null?"请输入用户名":request.getAttribute("msg") %>
         </span>
 
-        <form action="UserServlet?method=regist" method="get">
+        <form action="UserServlet" method="get">
+            <input type="hidden" name="method" value="regist">
             <label>用户名：</label>
             <input type="text" name="username" placeholder="请输入用户名" value="<%=request.getParameter("username")==null?"":request.getParameter("username")%>" />
             <label>密码：</label>
