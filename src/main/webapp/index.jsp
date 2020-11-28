@@ -33,5 +33,10 @@
         request:${requestScope.stu.username}<br/>
         session:${sessionScope.stu.username}<br/>
         application:${applicationScope.stu.username}<br/>
+
+        <hr/>
+        <c:if test="${5<6}">
+            <h1>我是c:if里面</h1>
+        </c:if>
     </body>
 </html>
