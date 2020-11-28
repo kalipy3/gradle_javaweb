@@ -25,7 +25,7 @@
         Map<String, Object> map = new HashMap<String, Object>();
         //list.add(null);
         pageContext.setAttribute("list", i);
-        //System.out.println(list.size());//1
+        System.out.println(i.length);//0
         %>
         ${empty pageScope.list}<br/>
     </body>
