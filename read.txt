@@ -2,143 +2,37 @@ read.txt
 
 :Author: kalipy
 :Email: kalipy@debian
-:Date: 2020-09-17 23:07
+:Date: 2020-11-28 21:36
 
-BookStore项目
+JSTL简介
+    jsp虽然提供了el表达式来替代jsp表达式,但是el表达式仅仅具有输出的功能，并不能替代jsp脚本片段
+    为了解决这个问题，jsp为我们提供了可以自定义标签库的功能
+    所谓自定义标签库就是可以在jsp页面中以类似于html标签的形式调用java中的方法
+    而为了方便开发者使用，sun公司又定义了一套通用的名为JST(JSP Standard Tag)的标签库，方便我们使用
+    JSTL由sun公司定制，由Apache实现
+    JSTL由5个不同功能的标签库组成
 
-1.需求分析，建立模型
-    建立登录注册相关模型(Bean层)
-        建立用户表
-            当数据库表很多时候，也要分层，一般按照命名规则分层即可
-                create database bookstore_01
+使用JSTL
+    使用JSTL必须导入下面2个jar包
+    taglibs-standard-impl-1.2.1.jar
+    taglibs-standard-spec-1.2.5.jar
 
-                create table bs_user(
-                    id int(12) primary key auto_increment,
-                    username varchar(100) not null unique,
-                    password varchar(100) not null,
-                    email varchar(100)
-                )
+    然后还需要在JSP页面中通过taglib标签引入标签库
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        prefix用来指定前缀名，我们通过该名来使用JSTL
+        uri相当于库的唯一标识，因为JSTL由多个不同的库组成，使用该属性指定要导入哪个库
 
-        建立对应的User类
-
-    建立Dao层：操作数据库
-        JDBCUtils:用来获取数据库连接,使用c3p0获取连接
-            导包 mysql-connector.jar c3p0.jar commons-dbutils.jar
-
-        建立BaseDao,专门用来被其他的dao继承，BaseDao定义了一些基本的操作
-            BaseDao<T>:
-                public T getBean()
-                public List<T> getBeanList()
-                public int update()
-
-        USerDao:操作User表的Dao类
-            面向接口编程
-                定义一个UserDao接口 定义UserDao有什么方法
-                    UserDao接口：
-                        User getUserByUserNameAndPassWord(User user);
-                        boolean registUser(User user);
-
-    建立Service层
-        UserService:完成登录注册功能
-        面向接口编程
-            UserService接口：
-                User login(User user);
-                boolean regist(User users);
+    使用JSTL
+        <c:out value="hello"></c:out>
+        调用前缀为c的标签的out方法，向页面中输出value属性中的字符串
+        JSTL的使用非常像html标签
 
 
-    建立Servlet层：处理用户请求
-        LoginServlet:处理登录请求
-        RegistServlet:处理注册请求
-
-    界面
-        修改响应逻辑
-       
-
---------------------------------------------------------------------------
-
-第三阶段 项目优化
-2.登录注册，如果发生错误应该有错误提示信息
-    错误提示：
-        1.用户输入用户名密码
-        2.发送登录请求
-        3.登录servlet来处理登录请求-->查用户
-            成功：重定向到页面
-            失败：转发到登录页面
-        4.又会在浏览器上显示登录页面。想要在登录页面动态获取错误信息，在转发之前，设置一个错误消息提示，把它放在域中。jsp就可以在域中取数据
-
-3.表单回显
-    当登录或注册失败时，回到登录或注册页面我们希望将之前填写的信息保留(表单回显)
-
-4.优化servlet的逻辑
-    一个请求对应了一个Servlet
-        UserService-->login(),regist(),xx()和用户相关的业务逻辑都放在了UserService.
-     问题：
-        可不可以和用户相关的请求(登录，注册..等)放在一个Servlet里
-
-        和用户相关的请求    UserServlet
-        和图书相关的请求    BookServlet
-        ...
-
-     分析：
-        注册，登录 都被UserServlet-->所以注册登录都请求同一个地址
-        可以为请求添加一个method字段，提交的时候,带上method值
-        if(method.eqauls("regist"))调用注册方法
-        if(method.eqauls("login"))调用登录方法
-
-     问题：
-        上面看起来好像没什么问题了，但是，get请求时，表单的数据会被带上，而之前请求地址中的数据会被表单数据覆盖掉,请运行代码测试
-
-        解决：
-            添加一个隐藏的表单项
-            <input type="hidden" name="method" value="login">
-            <input type="hidden" name="method" value="regist">
-
-     为了不陷入层层的if判断，我们改用反射也来实现一下
-
-     所有的Servlet都是通过反射来调用相应的方法，所以我们可以抽取一个BaseServlet
-        
-        用户发送请求
-        method=regist/login ----------->    BaseServlet
-                                            doGet()
-           UserServlet    <-----------------doPost()
-           regist()
-           login()
-              |
-              |
-             \|/
-             完成响应
-
-
-5.我们使用分层结构
-    Servlet-->Service-->Dao-->bean:在系统中数据都使用对象包装
-    注册：第一步：来到注册Servlet,获取数据封装对象
-    登录：第一步：来到登录Servlet,获取数据封装对象
-
-    xxx:第一步：来到xxServlet，获取数据封装对象
-
-    我们应该将获取数据，封装对象这个过程抽取出来
-    因为封装对象，还牵扯到数据转型，很麻烦..
-        User user = Utils.param2Bean(t);
-    我们希望抽取为一个自动化的工具。根据我们的需求，自动的封装对象，可以智能的帮我们封装数据。
-
-    反射...
-    requset里面带了好多参数....,根据要封装的对象获取相应的参数进行封装
-    beanutils有丰富的操作javaBean的方法
-    导包：commons-beanutils.jar commons-logging.jar
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        String email = req.getParameter("email");
-    
-    由于request获取的数据都是String类型的，要封装成Bean的话，需要类型装换.
-        w3m build/reports/tests/test/index.html
-    注意：在build.gradle中加了jar包之后，gradle build之后，要unzip build/distributions/gradle_javaweb.zip!!!!不然tomcat找不到需要的class 
-
-    javaBean的属性值的设置是按照getter setter方法定的
-    属性真正的名字是get或set后面的字符串,而不是Student等类的privat String username等字段
-
--------------------------------------------------------------------------
-
-第四阶段 使用el进行错误消息提示及表单回显
-    以前都是使用jsp表达式
-    el->获取数据方便。如果没有属性就是什么都没有，而不是在页面显示null。即不用做三元运算
+JSTL由五个不同功能的标签库组成
+    功能范围    uri                                     前缀
+    核心        http://java.sun.com/jsp/jstl/core       c
+    格式化      http://java.sun.com/jsp/jstl/fmt        fmt
+    函数        http://java.sun.com/jsp/jstl/functions  fn
+    数据库(废弃)
+    xml(废弃)
 
