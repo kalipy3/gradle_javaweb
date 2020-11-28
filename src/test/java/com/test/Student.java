@@ -26,7 +26,7 @@ public class Student
         this.id = id;
     }
 
-    public String getUsername() {
+    public String getUsername2() {
         return username;
     }
 

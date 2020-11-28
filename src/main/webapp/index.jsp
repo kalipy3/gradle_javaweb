@@ -19,14 +19,14 @@
 
         <hr/>
         jsp表达式方式取出四个域中的内容：<br/>
-        page:<%=((Student)pageContext.getAttribute("pageAttr")).getUsername() %><br/>
+        page:<%=((Student)pageContext.getAttribute("pageAttr")).getUsername2() %><br/>
         request:<%=request.getAttribute("requestAttr") %><br/>
         session:<%=session.getAttribute("sessionAttr") %><br/>
         application:<%=application.getAttribute("appAttr") %><br/>
         <hr/>
         <%-- ${表达式内容} --%>
         使用el表达式获取域内容<br/>
-        page:${pageAttr.username}<br/>
+        page:${pageAttr.username2}<br/>
         request:${requestAttr}<br/>
         session:${sessionAttr}<br/>
         application:${appAttr}<br/>
