@@ -132,3 +132,6 @@ BookStore项目
     由于request获取的数据都是String类型的，要封装成Bean的话，需要类型装换.
         w3m build/reports/tests/test/index.html
     注意：在build.gradle中加了jar包之后，gradle build之后，要unzip build/distributions/gradle_javaweb.zip!!!!不然tomcat找不到需要的class 
+
+    javaBean的属性值的设置是按照getter setter方法定的
+    属性真正的名字是get或set后面的字符串,而不是Student等类的privat String username等字段

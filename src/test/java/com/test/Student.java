@@ -26,11 +26,11 @@ public class Student
         this.id = id;
     }
 
-    public String getUsername() {
+    public String getUsern() {
         return username2;
     }
 
-    public void setUsername(String username) {
+    public void setUsern(String username) {
         this.username2 = username;
     }
 

@@ -37,7 +37,7 @@ public class BeanUtilsTest
         System.out.println("未设置值之前："+student);
         try {
             BeanUtils.setProperty(student, "age", 12);
-            BeanUtils.setProperty(student, "username2", "abcd");
+            BeanUtils.setProperty(student, "usern", "abcd");
             System.out.println("设置值之后："+student);
         } catch (Exception e) {
             e.printStackTrace();
