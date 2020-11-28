@@ -29,4 +29,9 @@ el可以获取域的值，那么它到底可以获取那些域的值?
    5. el表达式如何获取stu-x 这些特殊命名的属性(因为会产生歧义)
         使用[属性名] 取map中的数据可以使用 也可以用[key]
 
+----------------------------------------------------------------
+获取项目虚拟路径
+    获取request对象${pageContext.request}
+    获取contextPath${pageContext.request.contextPath}
+
 

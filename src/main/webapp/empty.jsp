@@ -29,5 +29,14 @@
         %>
         ${pageScope.list == null}<br/>
         ${empty pageScope.list}<br/>
+
+        ${pageContext.request.contextPath}<br/>
+        el存在的意义：
+            1.简化操作
+            2.友好显示
+        <%
+        pageContext.setAttribute("req", request);
+        %>
+        ${req.scheme}://${req.serverName}
     </body>
 </html>
