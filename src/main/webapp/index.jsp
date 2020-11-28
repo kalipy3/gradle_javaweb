@@ -20,12 +20,15 @@
         <%
         Student stu = new Student(1, "username", "password", "email", 12);
         pageContext.setAttribute("stu", stu);
+        request.setAttribute("stu", stu);
+        session.setAttribute("stu", stu);
+        application.setAttribute("stu", stu);
         %>
         <c:set property="username" value="hanser" target="${stu}"></c:set>
         <%=stu.getUsername()%>
 
         <hr/>
-        <c:remove var="stu"/>
+        <c:remove var="stu" scope="page"/>
         page:${pageScope.stu.username}<br/>
         request:${requestScope.stu.username}<br/>
         session:${sessionScope.stu.username}<br/>
