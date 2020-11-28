@@ -56,3 +56,17 @@ JSTL由五个不同功能的标签库组成
 
             eg:
                 <c:out value="${user.name}" default="" escapeXml="true"></c:out>
+
+
+            <c:set>用于添加或修改域中的属性
+            eg:
+                <c:set var="" property="" scope="" target="" value=""></c:set>
+            给域中设置一个属性
+                var:表示要设置的属性的key
+                value:表示要设置的属性的value
+                scope:表示要设置在哪个域中 pageScope
+                    scope="page"
+                    scope="request"
+                    scope="session"
+                    scope="application"
+                <c:set var="key" value="value" scope="request"></c:set>
