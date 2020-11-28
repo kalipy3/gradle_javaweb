@@ -36,3 +36,23 @@ JSTL由五个不同功能的标签库组成
     数据库(废弃)
     xml(废弃)
 
+-------------------------------------------------------------------
+
+使用
+    1.导包
+        taglibs-standard-impl-1.2.1.jar
+        taglibs-standard-spec-1.2.1.jar
+
+    2.在页面导入标签库
+        page include taglib
+        1.<%taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+        2.使用核心标签库
+            <c:out>用于计算一个表达式并将结果输出到当前页面
+
+            value:代表要输出的内容，可以是el表达式
+            default:表示value的缺省值
+            escapeXml:表示是否转义特殊字符，默认转义
+
+            eg:
+                <c:out value="${user.name}" default="" escapeXml="true"></c:out>
