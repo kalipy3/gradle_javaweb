@@ -15,9 +15,12 @@
         request.setAttribute("stu", "requestValue");
         session.setAttribute("stu", "sessionValue");
         application.setAttribute("stu", "appValue");
+        String str = "你好";
         %>
 
         <hr/>
+        jsp表达式：<%=str %><br/>
+        el表达式：${str}<br/>
         <hr/>
         <%-- ${表达式内容} --%>
         使用el表达式获取域内容<br/>
