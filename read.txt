@@ -70,3 +70,9 @@ JSTL由五个不同功能的标签库组成
                     scope="session"
                     scope="application"
                 <c:set var="key" value="value" scope="request"></c:set>
+
+            修改对象的某个属性值
+                <c:set property="name" target="${user}" value="hanser"></c:set>
+                property:代表要修改的属性名
+                value:修改后的值
+                target:代表修改哪个对象
