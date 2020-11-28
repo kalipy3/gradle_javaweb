@@ -61,7 +61,7 @@ JSTL由五个不同功能的标签库组成
             <c:set>用于添加或修改域中的属性
             eg:
                 <c:set var="" property="" scope="" target="" value=""></c:set>
-            给域中设置一个属性
+            1.给域中设置一个属性
                 var:表示要设置的属性的key
                 value:表示要设置的属性的value
                 scope:表示要设置在哪个域中 pageScope
@@ -71,8 +71,16 @@ JSTL由五个不同功能的标签库组成
                     scope="application"
                 <c:set var="key" value="value" scope="request"></c:set>
 
-            修改对象的某个属性值
+            2.修改对象的某个属性值
                 <c:set property="name" target="${user}" value="hanser"></c:set>
                 property:代表要修改的属性名
                 value:修改后的值
                 target:代表修改哪个对象
+
+            3.<c:remove>用来移除域中的属性
+              <c:remove var="" scope=""/>
+              var:要移除的属性的key
+              scope:要移除哪个域中的属性
+              eg:
+                移除所有域中key属性:<c:remove var="key"/>
+                移除request中的key属性:<c:remove var="key" scope="request"/>

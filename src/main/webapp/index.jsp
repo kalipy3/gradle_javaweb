@@ -23,5 +23,12 @@
         %>
         <c:set property="username" value="hanser" target="${stu}"></c:set>
         <%=stu.getUsername()%>
+
+        <hr/>
+        <c:remove var="stu"/>
+        page:${pageScope.stu.username}<br/>
+        request:${requestScope.stu.username}<br/>
+        session:${sessionScope.stu.username}<br/>
+        application:${applicationScope.stu.username}<br/>
     </body>
 </html>
