@@ -142,4 +142,46 @@ BookStore项目
     以前都是使用jsp表达式
     el->获取数据方便。如果没有属性就是什么都没有，而不是在页面显示null。即不用做三元运算
 
+--------------------------------------------------------------------------
+
+第五阶段 图书馆后台管理的增删改查以及前端显示
+    1.后端的图书管理功能
+        1.显示层:页面
+        2.控制层：Servlet
+        3.业务逻辑层：Service
+        4.持久化层:Dao
+        5.模型层：Bean
+        6.数据库对应的表
+
+        6.创建图书相关的表。哪些字段?
+            主键    自增
+            书名    varchar
+            作者    varchar
+            价格    double(11,2)
+            销量    int
+            库存    int
+            封面图片    只保存图书封面的图片路径，绝对路径,base标签。保存图片相对于当前项目的路径 <img src="">
+        
+        7.对应的javaBean
+            book
+            Integer id;
+            String title;
+            String author;
+            double price;
+            int sales;
+            int stock;
+            String imgPath;
+
+        8.创建sql:
+            create table bs_book(
+                id int(11) primary key auto_increment,
+                title varchar(100) not null,
+                author varchar(100) not null,
+                price double(11,2),
+                sales int(11),
+                stock int(11),
+                img_path varchar(200)
+            )
+
+    
 
