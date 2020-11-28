@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.bean.User;
 import com.service.UserService;
 import com.service.UserServiceImpl;
+import com.utils.WebUtils;
 //处理所有和用户相关的请求
 //Servlet implements class UserServlet
 //抽取BaseServlet以后
@@ -27,11 +28,8 @@ public class UserServlet extends BaseServlet
     private UserService us = new UserServiceImpl();
     
     protected void regist(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        String email = req.getParameter("email");
-
-        boolean b = us.regist(new User(null, username, password, email));
+        User user = WebUtils.param2bean(req, new User());
+        boolean b = us.regist(user);
         if (b) {
             //注册成功 返回成功页面 重定向
             resp.sendRedirect(req.getContextPath() 
@@ -43,9 +41,11 @@ public class UserServlet extends BaseServlet
         }
     }
     protected void login(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        User user = us.login(new User(1, username, password, "3069087972@qq.com"));
+        //String username = req.getParameter("username");
+        //String password = req.getParameter("password");
+        User user2 = WebUtils.param2bean(req, new User());
+        //User user = us.login(new User(1, username, password, "3069087972@qq.com"));
+        User user = us.login(user2);
         if (user == null) {
             //登录失败 返回登录页面即可 转发
             req.setAttribute("msg", "用户名密码错误");
