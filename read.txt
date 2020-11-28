@@ -35,3 +35,5 @@ el可以获取域的值，那么它到底可以获取那些域的值?
     获取contextPath${pageContext.request.contextPath}
 
 
+
+
