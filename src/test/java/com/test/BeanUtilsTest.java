@@ -37,13 +37,15 @@ public class BeanUtilsTest
         System.out.println("未设置值之前："+student);
         try {
             BeanUtils.setProperty(student, "age", 12);
-            //请分别测试
-            //BeanUtils.setProperty(student, "age", "190");
-            //BeanUtils.setProperty(student, "age", "abc");
+            BeanUtils.setProperty(student, "username2", "abcd");
             System.out.println("设置值之后："+student);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //javaBean 属性 private String name;
+        //getter setter方法才是javaBean的属性getAttr-attr;
+        //getImgPath-->imgPath
+        //setImgPath
     }
 }
 

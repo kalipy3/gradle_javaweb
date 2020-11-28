@@ -9,7 +9,7 @@ package com.test;
 public class Student
 {
     private Integer id;
-    private String username;
+    private String username2;
     private String password;
     private String email;
     private int age;
@@ -27,11 +27,11 @@ public class Student
     }
 
     public String getUsername() {
-        return username;
+        return username2;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username2 = username;
     }
 
     public String getPassword() {
@@ -62,7 +62,7 @@ public class Student
     public String toString() {
         return "Student{" +
             "id = " + id +
-            ", username = " + username +
+            ", username = " + username2 +
             ", password = " + password +
             ", email = " + email +
             ", age = " + age +
@@ -71,7 +71,7 @@ public class Student
 
     public Student(Integer id, String username, String password, String email, int age) {
         this.id = id;
-        this.username = username;
+        this.username2 = username;
         this.password = password;
         this.email = email;
         this.age = age;
