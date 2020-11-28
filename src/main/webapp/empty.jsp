@@ -21,9 +21,10 @@
         <%
         Student stu = null;
         List<Student> list = new ArrayList<Student>();
+        int[] i = new int[5];
         Map<String, Object> map = new HashMap<String, Object>();
         //list.add(null);
-        pageContext.setAttribute("list", map);
+        pageContext.setAttribute("list", i);
         //System.out.println(list.size());//1
         %>
         ${empty pageScope.list}<br/>
