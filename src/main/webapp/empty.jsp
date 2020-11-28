@@ -24,8 +24,8 @@
         int[] i = null;
         Map<String, Object> map = new HashMap<String, Object>();
         //list.add(null);
-        pageContext.setAttribute("list", i);
-        System.out.println(i.length);//0
+        pageContext.setAttribute("list", "");
+        //System.out.println(i.length);//0
         %>
         ${empty pageScope.list}<br/>
     </body>
