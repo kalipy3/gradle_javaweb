@@ -21,7 +21,7 @@
         <%
         Student stu = null;
         List<Student> list = new ArrayList<Student>();
-        int[] i = new int[5];
+        int[] i = new int[0];
         Map<String, Object> map = new HashMap<String, Object>();
         //list.add(null);
         pageContext.setAttribute("list", i);
