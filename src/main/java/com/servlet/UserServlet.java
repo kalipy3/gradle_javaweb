@@ -41,10 +41,11 @@ public class UserServlet extends BaseServlet
         }
     }
     protected void login(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
-        //String username = req.getParameter("username");
-        //String password = req.getParameter("password");
-        User user2 = WebUtils.param2bean(req, new User());
-        //User user = us.login(new User(1, username, password, "3069087972@qq.com"));
+        //User user2 = WebUtils.param2bean(req, new User());
+        //User user = us.login(user2);
+        
+        //方法二
+        User user2 = WebUtils.param2bean2(req, new User());
         User user = us.login(user2);
         if (user == null) {
             //登录失败 返回登录页面即可 转发

@@ -6,6 +6,7 @@ package com.utils;
  * Distributed under terms of the MIT license.
  */
 import java.lang.reflect.Field;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -30,6 +31,17 @@ public class WebUtils
             }
 
             //封装对象setAttrName()
+        }
+        return t;
+    }
+
+    public static<T> T param2bean2(HttpServletRequest req, T t) {
+        //populate将map中的键值对，直接映射到javaBean中
+        Map map = req.getParameterMap();
+        try {
+            BeanUtils.populate(t, map);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return t;
     }
