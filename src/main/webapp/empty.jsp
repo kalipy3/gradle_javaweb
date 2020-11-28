@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;Charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page isELIgnored="false" %>
 <%@ page language="java" import="com.test.Student" %>
+<%@ page language="java" import="java.util.*" %>
 
 <html lang="en">
     <head>
@@ -18,16 +19,13 @@
               空字符
         -->
         <%
-        Student stu = new Student(1, "username", "password", "email", 18);
-        Student stu2 = new Student();
-        Student stu3 = null;
-        pageContext.setAttribute("stu", stu);
-        pageContext.setAttribute("stu2", stu2);
-        pageContext.setAttribute("stu3", stu3);
+        Student stu = null;
+        List<Student> list = new ArrayList<Student>();
+        Map<String, Object> map = new HashMap<String, Object>();
+        list.add(null);
+        pageContext.setAttribute("list", list);
+        System.out.println(list.size());//1
         %>
-        ${empty pageScope.stu}<br/>
-        ${empty pageScope.stu2}<br/>
-        ${empty pageScope.stu3}<br/>
-        ${empty pageScope.stux}<br/>
+        ${empty pageScope.list}<br/>
     </body>
 </html>
