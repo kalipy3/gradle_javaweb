@@ -5,5 +5,21 @@ read.txt
 :Date: 2020-11-28 16:18
 
 
-el表达式
+el表达式(expression language,它可以在jsp页面上直接使用，格式：${表达式内容})
+1. 提出问题
+    在jsp页面上获取域对象中保存的数据和获取请求参数数据是非常常用的操作
+    获取请求域中的数据
+        <%=request.getAttribute("message")==null?"" : requset.getAttribute("message") %>
+    
+    获取请求参数
+        <%=request.getParameter("username")==null?"" : request.getParameter("username") %>
+    问题：
+        有没有什么办法可以让上面的代码简洁一些?
+    解决：
+        el表达式
+            获取请求域中的数据
+            ${requestScope.message}
+
+            获取请求参数
+            ${}
 
