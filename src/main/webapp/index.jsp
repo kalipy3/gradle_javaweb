@@ -12,15 +12,15 @@
         <%
         Student stu = new Student(1, "张三", "password", "email", 18);
         pageContext.setAttribute("stu", stu);
-        request.setAttribute("stu", "requestValue");
+        request.setAttribute("stu-x", stu);
         session.setAttribute("stu", "sessionValue");
         application.setAttribute("stu", "appValue");
         String str = "你好";
         %>
 
         <hr/>
-        jsp表达式：<%=str %><br/>
-        el表达式：${str}<br/>
+        jsp表达式：<%=request.getAttribute("stu-x") %><br/>
+        el表达式：${requestScope['stu-x'].username}<br/>
         <hr/>
         <%-- ${表达式内容} --%>
         使用el表达式获取域内容<br/>

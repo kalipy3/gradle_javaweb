@@ -25,5 +25,8 @@ el可以获取域的值，那么它到底可以获取那些域的值?
         四个域对象。是从这四个域对象中取值
         pageContext域中的数据 pageScope(封装了pageContext域中所有的共享数据(setAttr,getAttr)),它是一个Map
         request域中的数据 requestScope(封装了requestScope域中所有的共享数据(setAttr,getAttr)),它是一个Map
-    
+   
+   5. el表达式如何获取stu-x 这些特殊命名的属性(因为会产生歧义)
+        使用[属性名] 取map中的数据可以使用 也可以用[key]
+
 
