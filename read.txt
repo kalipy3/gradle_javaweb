@@ -19,4 +19,11 @@ el表达式
 
 3.el表达式如果获取域中的属性，直接写属性名，它按四个域从小到大找，找到即停止
 
+--------------------------------------------------------------
+el可以获取域的值，那么它到底可以获取那些域的值?
+    4.el 11个隐含对象(el有11常用的对象可以直接使用)
+        四个域对象。是从这四个域对象中取值
+        pageContext域中的数据 pageScope(封装了pageContext域中所有的共享数据(setAttr,getAttr)),它是一个Map
+        request域中的数据 requestScope(封装了requestScope域中所有的共享数据(setAttr,getAttr)),它是一个Map
+    
 
