@@ -35,8 +35,9 @@
         application:${applicationScope.stu.username}<br/>
 
         <hr/>
-        <c:if test="${5<6}">
+        <c:if test="${stu.username != null}" scope="page" var="flag">
             <h1>我是c:if里面</h1>
         </c:if>
+        ${flag}
     </body>
 </html>
