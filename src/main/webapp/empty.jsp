@@ -14,14 +14,14 @@
               1.变量的值是null
               2.域对象中不存在这个变量
               空集合
-              空数组
+              空数组 int[] i = null;
               空字符串
               空字符
         -->
         <%
         Student stu = null;
         List<Student> list = new ArrayList<Student>();
-        int[] i = new int[0];
+        int[] i = null;
         Map<String, Object> map = new HashMap<String, Object>();
         //list.add(null);
         pageContext.setAttribute("list", i);
