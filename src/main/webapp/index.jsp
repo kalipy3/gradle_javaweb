@@ -39,5 +39,13 @@
             <h1>我是c:if里面</h1>
         </c:if>
         ${flag}
+
+        <hr/>
+        <c:if test="${stu.age > 18}">
+            <h2>你的年龄大于18岁</h2>
+        </c:if>
+        <c:if test="${stu.age <= 18}">
+            <h2>你的年龄小于18岁</h2>
+        </c:if>
     </body>
 </html>
