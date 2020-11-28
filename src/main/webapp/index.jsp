@@ -11,6 +11,6 @@
         <%
         pageContext.setAttribute("msg", "你好");
         %>
-        <c:out value="${msg}" default="hello" escapeXml="true"></c:out>
+        <c:out value="${msg2}" default="hello" escapeXml="true"></c:out>
     </body>
 </html>
