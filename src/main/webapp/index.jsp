@@ -9,8 +9,8 @@
     </head>
     <body>
         <%
-        pageContext.setAttribute("msg", "你好");
+        pageContext.setAttribute("msg", "<h1>提示信息</h1>");
         %>
-        <c:out value="${msg2}" default="hello" escapeXml="true"></c:out>
+        <c:out value="${msg}" default="hello" escapeXml="true"></c:out>
     </body>
 </html>
