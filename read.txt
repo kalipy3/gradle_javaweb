@@ -109,4 +109,24 @@ BookStore项目
              完成响应
 
 
+5.我们使用分层结构
+    Servlet-->Service-->Dao-->bean:在系统中数据都使用对象包装
+    注册：第一步：来到注册Servlet,获取数据封装对象
+    登录：第一步：来到登录Servlet,获取数据封装对象
 
+    xxx:第一步：来到xxServlet，获取数据封装对象
+
+    我们应该将获取数据，封装对象这个过程抽取出来
+    因为封装对象，还牵扯到数据转型，很麻烦..
+        User user = Utils.param2Bean(t);
+    我们希望抽取为一个自动化的工具。根据我们的需求，自动的封装对象，可以智能的帮我们封装数据。
+
+    反射...
+    requset里面带了好多参数....,根据要封装的对象获取相应的参数进行封装
+    beanutils有丰富的操作javaBean的方法
+    导包：commons-beanutils.jar commons-logging.jar
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
+        String email = req.getParameter("email");
+    
+    由于request获取的数据都是String类型的，要封装成Bean的话，需要类型装换.

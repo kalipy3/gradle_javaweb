@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.bean.User;
 import com.service.UserService;
 import com.service.UserServiceImpl;
+import com.utils.WebUtils;
 
 /*
  * MyEclipseServlet.java
@@ -32,6 +33,7 @@ public class RegistServlet extends HttpServlet
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String email = req.getParameter("email");
+        User user = WebUtils.param2bean(req, new User());
 
         boolean b = us.regist(new User(null, username, password, email));
         if (b) {

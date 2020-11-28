@@ -26,6 +26,8 @@ dependencies {
     compile "c3p0:c3p0:0.9.1.2"
     compile "mysql:mysql-connector-java:8.0.21"
     compile "commons-dbutils:commons-dbutils:1.7"
+    compile "commons-beanutils:commons-beanutils:1.9.3"
+    compile "org.ow2.util.bundles:commons-logging-1.1.1:1.0.0"
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13'
