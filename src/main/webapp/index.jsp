@@ -19,8 +19,9 @@
         <hr/>
         <%
         Student stu = new Student(1, "username", "password", "email", 12);
+        pageContext.setAttribute("stu", stu);
         %>
-        <c:set property="username" value="yousa" target="<%=stu%>"></c:set>
+        <c:set property="username" value="hanser" target="${stu}"></c:set>
         <%=stu.getUsername()%>
     </body>
 </html>
