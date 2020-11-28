@@ -5,6 +5,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.junit.Test;
 
 import com.bean.User;
+import com.test.Student;
 /*
  * UserDaoTest.java
  * Copyright (C) 2020 kalipy <kalipy@debian>
@@ -25,6 +26,21 @@ public class BeanUtilsTest
         try {
             BeanUtils.setProperty(user, "username", "小明");
             System.out.println("设置值之后："+user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test 
+    public void test2() {
+        Student student = new Student();
+        System.out.println("未设置值之前："+student);
+        try {
+            BeanUtils.setProperty(student, "age", 12);
+            //请分别测试
+            //BeanUtils.setProperty(student, "age", "190");
+            //BeanUtils.setProperty(student, "age", "abc");
+            System.out.println("设置值之后："+student);
         } catch (Exception e) {
             e.printStackTrace();
         }

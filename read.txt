@@ -130,3 +130,4 @@ BookStore项目
         String email = req.getParameter("email");
     
     由于request获取的数据都是String类型的，要封装成Bean的话，需要类型装换.
+        w3m build/reports/tests/test/index.html
