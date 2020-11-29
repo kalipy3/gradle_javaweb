@@ -76,8 +76,14 @@ public class BookManagerServlet extends BaseServlet
         //封装修改的图书信息
         Book book = WebUtils.param2bean2(req, new Book());
         System.out.println("update:"+book);
-        //修改图书
-        bookService.update(book);
+        //由于修改和添加操作，封装出的book,id有差别，所以可以通过id就直接断定是add添加操作还是update修改操作
+        if (book.getId() == 0) {
+            //添加图书
+            bookService.add(book);
+        } else {
+            //修改图书
+            bookService.update(book);
+        }
         //返回列表页面
         resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=list");
     }

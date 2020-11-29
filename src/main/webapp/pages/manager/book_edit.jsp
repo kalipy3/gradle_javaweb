@@ -15,7 +15,7 @@
         </div>
         <div id="main">
             <form action="manager/BookManagerServlet" method="post">
-                <input type="hidden" name="method" value="${param.m}">
+                <input type="hidden" name="method" value="update">
                 <input type="hidden" name="id" value="${book.id}">
                 <table>
                     <tr>
