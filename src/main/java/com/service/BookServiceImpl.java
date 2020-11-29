@@ -2,6 +2,7 @@ package com.service;
 import java.util.List;
 
 import com.bean.Book;
+import com.bean.Page;
 import com.dao.BookDao;
 import com.dao.BookDaoImpl;
 import com.service.BookService;
@@ -41,8 +42,27 @@ public class BookServiceImpl implements BookService
         return bd.getAllBook();
     }
     
-	public BookServiceImpl() {
-		
-	}
+    @Override
+    public Page<Book> getPage(String pageNo, String pageSize) {
+        //1.将用户传入的数据先封装部分
+        Page/*<Book>*/ page = new Page<Book>();
+        //将用户传入的数据转型并封装,设置默认值
+        int pn = 1;
+        int ps = page.getPageSize();
+        try {
+            pn = Integer.parseInt(pageNo);
+            ps = Integer.parseInt(pageSize);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        page.setPageNo(pn);
+        page.setPageSize(ps);
+        //2.因为要使用totalCount也即是当前总记录数，所以还想要查数据库
+        return 
+    }
+
+    public BookServiceImpl() {
+
+    }
 }
 

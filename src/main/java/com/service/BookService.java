@@ -3,6 +3,7 @@ package com.service;
 import java.util.List;
 
 import com.bean.Book;
+import com.bean.Page;
 
 /*
  * BookService.java
@@ -22,5 +23,8 @@ public interface BookService
     public Book getOne(Book book);
     
     public List<Book> getAll();
+
+    //返回分页数据
+    public Page<Book> getPage(String pageNo, String pageSize);
 }
 
