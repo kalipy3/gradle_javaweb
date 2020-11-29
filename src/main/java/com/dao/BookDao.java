@@ -35,5 +35,6 @@ public interface BookDao
     //@param size
     public List<Book> getPageList(int index, int size);
 
+    public int getTotalCount();
 }
 

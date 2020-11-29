@@ -42,10 +42,11 @@ public class BookServiceImpl implements BookService
         return bd.getAllBook();
     }
     
+    //获取分页数据
     @Override
     public Page<Book> getPage(String pageNo, String pageSize) {
         //1.将用户传入的数据先封装部分
-        Page/*<Book>*/ page = new Page<Book>();
+        Page<Book> page = new Page<Book>();
         //将用户传入的数据转型并封装,设置默认值
         int pn = 1;
         int ps = page.getPageSize();
@@ -58,7 +59,13 @@ public class BookServiceImpl implements BookService
         page.setPageNo(pn);
         page.setPageSize(ps);
         //2.因为要使用totalCount也即是当前总记录数，所以还想要查数据库
-        return 
+        int totalCount = bd.getTotalCount();//获取总记录数
+        page.setTotalCount(totalCount);
+
+        //3.查询数据库并封装
+        List<Book> list = bd.getPageList(page.getIndex(), page.getPageSize());
+        page.setPageData(list);
+        return page;
     }
 
     public BookServiceImpl() {

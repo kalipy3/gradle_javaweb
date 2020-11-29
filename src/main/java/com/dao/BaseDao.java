@@ -14,6 +14,7 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import com.utils.JDBCUtils;
 
@@ -67,6 +68,20 @@ public class BaseDao<T>
         try {
             //查询一组数据
             query = runner.query(connection, sql, new BeanListHandler<>(type), params);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.releaseConnection(connection);
+        }
+        return query;
+    }
+    
+    //查询单个值
+    public Object getSingleValue(String sql, Object ...params) {
+        Object query = null;
+        Connection connection = JDBCUtils.getConnection();
+        try {
+            query = runner.query(connection, sql, new ScalarHandler(), params);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

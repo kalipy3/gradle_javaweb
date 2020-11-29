@@ -61,5 +61,18 @@ public class BookDaoImpl extends BaseDao<Book> implements BookDao
     public BookDaoImpl() {
 		
 	}
+
+    @Override
+    public int getTotalCount() {
+        String sql = "select count(*) from bs_book";
+        Object object = getSingleValue(sql);
+        int parseInt = 0;
+        try {
+        parseInt = Integer.parseInt(object.toString());
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return parseInt;
+    }
 }
 
