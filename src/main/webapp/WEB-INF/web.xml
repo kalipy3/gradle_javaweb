@@ -29,4 +29,13 @@
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/UserServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>BookManagerServlet</servlet-name>
+        <servlet-class>com.servlet.BookManagerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BookManagerServlet</servlet-name>
+        <url-pattern>/manager/BookManagerServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

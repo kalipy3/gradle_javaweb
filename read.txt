@@ -206,3 +206,10 @@ BookStore项目
         delete(Book book)
         getOne(Book book)
         getAll()//获取所有图书
+
+    2.Servlet,控制器Controller,用来控制页面转发(见servlet.png)
+        1.用户点击图书管理，显示所有的图书
+            http://127.0.0.1:8080/01Servlet/pages/manager/book_manager.jsp
+            点击图书管理-->交给Servlet-->查出数据-->交给页面显示
+            BookManagerServlet
+                list()//处理显示图书列表的请求
