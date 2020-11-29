@@ -7,6 +7,15 @@
         <meta charset="UTF-8">
         <title>图书管理</title>
         <%@include file="/include/base.jsp" %>
+
+        <script type="text/javascript">
+                $(function(){
+                    $(".delBtn").click(function(){
+                        alert("删除");
+                        return false;
+                    });
+                });
+        </script>
     </head>
     <body>
         <div id="header">
@@ -31,7 +40,7 @@
                     <td>${book.sales}</td>
                     <td>${book.stock}</td>
                     <td><a href="pages/manager/book_edit.jsp">修改</a></td>
-                    <td><a href="#">删除</a></td>
+                    <td><a class="delBtn" href="#">删除</a></td>
                 </tr>
             </c:forEach>
             <tr>

@@ -5,3 +5,5 @@ http://localhost:8080/01Servlet/
 协议://主机名:端口号/项目路径/
 -->
 <base href="<%=request.getScheme() %>://<%=request.getServerName() %>:<%=request.getServerPort() %><%=request.getContextPath() %>/" />
+
+<script type="text/javascript" src="static/js/jquery-3.3.1.min.js"></script>

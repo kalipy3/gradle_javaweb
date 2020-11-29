@@ -222,4 +222,6 @@ BookStore项目
                                   BookManagerServlet
                                   add()添加图书，添加成功后还是显示图书列表
                                   重新请求列表显示方法list()
-                    
+                   
+        3.删除图书
+            用户点击删除-->Servlet接受请求-->按照图书id删除图书-->还是回到图书列表页面
