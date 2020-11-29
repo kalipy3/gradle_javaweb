@@ -11,8 +11,14 @@
         <script type="text/javascript">
                 $(function(){
                     $(".delBtn").click(function(){
-                        alert("删除");
-                        return false;
+                        //alert("删除");
+                        //this代表当前被点击的a
+                        //parent()-->td    parent()-->tr
+                        var td = $(this).parent().parent().children(":first");
+                        if (!confirm("确认删除【"+td.text()+"】吗?")) {
+                            //用户点击取消
+                            return false;
+                        }
                     });
                 });
         </script>
