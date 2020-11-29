@@ -10,9 +10,9 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.bean.Book;
 import com.dao.BookDao;
 import com.dao.BookDaoImpl;
-import com.bean.Book;
 
 public class BookDaoTest
 {
@@ -30,6 +30,33 @@ public class BookDaoTest
         boolean b = bd.addBook(book);
         System.out.println(b);
     }
+
+    //删除
+    @Test 
+    public void test3() {
+        Book book = new Book();
+        book.setId(2);
+        boolean b = bd.delBook(book);
+        System.out.println(b);
+    }
+
+    //修改图书
+    @Test
+    public void test4() {
+        Book book = new Book(3, "c", "kalipy", 500, 0, 200, null);
+        boolean b = bd.updateBook(book);
+        System.out.println(b);
+    }
+
+    //获取一本图书
+    @Test
+    public void test5() {
+        Book b = new Book();
+        b.setId(6);
+        Book book = bd.getBook(b);
+        System.out.println(book);//不是b
+    }
+
 	public BookDaoTest() {
 		
 	}
