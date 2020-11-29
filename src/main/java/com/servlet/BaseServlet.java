@@ -35,6 +35,8 @@ public class BaseServlet extends HttpServlet
         //} else if(修改密码) {
         //  调用修改密码
         //}
+        //应该在还未获取数据之前设置的编码方式来解决乱码问题
+        req.setCharacterEncoding("utf-8");
         String method = req.getParameter("method");
         System.out.println(method);
         //getDeclaredMethod(方法名，参数列表)
