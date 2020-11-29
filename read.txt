@@ -183,5 +183,19 @@ BookStore项目
                 img_path varchar(200)
             )
 
+
+开发数据库层
+    面向接口开发
+    接口类：BookDao
+    接口方法：
+        List<Book> getAllBook()显示所有图书
+        boolean addBook(Book book);增加图书
+        boolean delBook(Book book);删除图书
+        boolean updateBook(Book book);修改图书
+        Book getBook(Book book);找一本图书
+
+    BookDaoimpl
+    BookDaoimpl extends BaseDao<Book> implements BookDao
+
     
 
