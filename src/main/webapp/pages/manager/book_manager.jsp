@@ -10,7 +10,7 @@
     </head>
     <body>
         <div id="header">
-            <span>图书管理系统</span>
+            <h1>图书管理系统</h1>
             <%@include file="/include/book-manager.jsp" %>
         </div>
         <table>
@@ -30,10 +30,18 @@
                     <td>${book.author}</td>
                     <td>${book.sales}</td>
                     <td>${book.stock}</td>
-                    <td><a href="#">修改</a></td>
+                    <td><a href="pages/manager/book_edit.jsp">修改</a></td>
                     <td><a href="#">删除</a></td>
                 </tr>
             </c:forEach>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="pages/manager/book_edit.jsp">添加图书</a></td>
+            </tr>
         </table>
     </body>
 </html>

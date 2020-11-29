@@ -213,3 +213,7 @@ BookStore项目
             点击图书管理-->交给Servlet-->查出数据-->交给页面显示
             BookManagerServlet
                 list()//处理显示图书列表的请求
+
+        2.添加图书
+            1.用户点击添加图书-->链接到图书添加页面(book_edit.jsp)-->
+                    

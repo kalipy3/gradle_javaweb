@@ -11,6 +11,7 @@ import com.bean.Book;
 import com.service.BookService;
 import com.service.BookServiceImpl;
 import com.servlet.BaseServlet;
+import com.utils.WebUtils;
 
 /*
  * BookManagerServlet.java
@@ -30,6 +31,14 @@ public class BookManagerServlet extends BaseServlet
         req.setAttribute("list", list);
         //交给页面
         req.getRequestDispatcher("/pages/manager/book_manager.jsp").forward(req, resp);
+    }
+   
+    //图书添加
+    protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //1.将提交的图书信息封装为book对象,表单的name应该和对象的属性一一对应
+        Book book = WebUtils.param2bean2(req, new Book());
+        System.out.println("add:"+book);
+        //2.将图书保存到数据库
     }
 }
 
