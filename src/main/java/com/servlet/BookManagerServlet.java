@@ -70,5 +70,16 @@ public class BookManagerServlet extends BaseServlet
         //转发到页面进行显示
         req.getRequestDispatcher("/pages/manager/book_edit.jsp").forward(req, resp);
     }
+   
+    //修改图书
+    protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //封装修改的图书信息
+        Book book = WebUtils.param2bean2(req, new Book());
+        System.out.println("update:"+book);
+        //修改图书
+        bookService.update(book);
+        //返回列表页面
+        resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=list");
+    }
 }
 
