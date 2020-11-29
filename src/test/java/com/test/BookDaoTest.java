@@ -23,6 +23,13 @@ public class BookDaoTest
         System.out.println(list);
     }
 
+    //添加图书
+    @Test 
+    public void test2() {
+        Book book = new Book(null, "c语言", "郝斌", 50.12, 0, 200, null);
+        boolean b = bd.addBook(book);
+        System.out.println(b);
+    }
 	public BookDaoTest() {
 		
 	}

@@ -106,7 +106,10 @@ public class Book
         this.price = price;
         this.sales = sales;
         this.stock = stock;
-        this.imgPath = imgPath;
+        //this.imgPath = imgPath;
+        if (imgPath != null) {
+            this.imgPath = imgPath;
+        }
     }
 
 }

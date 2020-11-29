@@ -23,22 +23,33 @@ public class BookDaoImpl extends BaseDao<Book> implements BookDao
 
     @Override
     public boolean addBook(Book book) {
-        return false;
+        String sql = "insert into bs_book(title,author,price,sales,stock,img_path) value(?,?,?,?,?,?)";
+        int update = update(sql, book.getTitle(), book.getAuthor(), book.getPrice(), book.getSales(), book.getStock(), book.getImgPath());
+
+        return update > 0;
     }
 
     @Override
     public boolean delBook(Book book) {
-        return false;
+        String sql = "delete from bs_book where id=?";
+        int update = update(sql, book.getId());
+
+        return update > 0;
     }
 
     @Override
     public boolean updateBook(Book book) {
-        return false;
+        String sql = "update bs_book set title=?,author=?,price=?,sales=?,stock=?,img_path=? where id=?";
+        //book 修改后的样子
+        int update = update(sql, book.getTitle(), book.getAuthor(), book.getPrice(), book.getSales(), book.getStock(), book.getImgPath(), book.getId());
+
+        return update > 0;
     }
 
     @Override
     public Book getBook(Book book) {
-        return null;
+        String sql = "select id,title,author,price,sales,stock,img_path imgPath from bs_book where id=?";
+        return getBean(sql, book.getId());
     }
 	
     public BookDaoImpl() {
