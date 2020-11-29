@@ -198,4 +198,11 @@ BookStore项目
     BookDaoimpl extends BaseDao<Book> implements BookDao
 
     
-
+业务逻辑层
+    增删改查    面向接口编程
+    BookService(接口interface)
+        add(Book book)
+        update(Book book)//修改图书
+        delete(Book book)
+        getOne(Book book)
+        getAll()//获取所有图书
