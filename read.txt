@@ -266,4 +266,6 @@ BookStore项目
 
      分页模型：
         1.创建Bean层的分页模型
+        2.dao层,应该返回原始数据
+            List<Book> getPageList(int index,int size);
 

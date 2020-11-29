@@ -51,6 +51,12 @@ public class BookDaoImpl extends BaseDao<Book> implements BookDao
         String sql = "select id,title,author,price,sales,stock,img_path imgPath from bs_book where id=?";
         return getBean(sql, book.getId());
     }
+
+    @Override 
+    public List<Book> getPageList(int index, int size) {
+        String sql = "select id, title, author, price, sales, stock, img_path imgPath from bs_book limit ?,?";
+        return getBeanList(sql, index, size);
+    }
 	
     public BookDaoImpl() {
 		

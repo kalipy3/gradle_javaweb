@@ -30,5 +30,10 @@ public interface BookDao
     //@param book 包含图书的id
     public Book getBook(Book book);
 
+    //分页查找图书的方法
+    //@param index
+    //@param size
+    public List<Book> getPageList(int index, int size);
+
 }
 

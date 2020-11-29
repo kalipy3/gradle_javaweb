@@ -114,8 +114,8 @@ public class Page<T>
             ", totalCount = " + getTotalCount() +
             ", pageSize = " + getPageSize() +
             ", index = " + getIndex() +
-            ", hasNext = " + getHasNext() +
-            ", hasPrev = " + getHasPrev() +
+            ", hasNext = " + isHasNext() +
+            ", hasPrev = " + isHasPrev() +
             ", pageData = " + getPageData() +
             "}";
     }
