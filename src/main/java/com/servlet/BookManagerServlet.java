@@ -37,8 +37,14 @@ public class BookManagerServlet extends BaseServlet
     protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //1.将提交的图书信息封装为book对象,表单的name应该和对象的属性一一对应
         Book book = WebUtils.param2bean2(req, new Book());
-        System.out.println("add:"+book);//book里面的中文会乱码
+        System.out.println("add:"+book);
         //2.将图书保存到数据库
+        boolean b = bookService.add(book);
+
+        if (b) {
+            //3.保存成功，重回列表页面，列表显示
+            resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=list");
+        }
     }
 }
 
