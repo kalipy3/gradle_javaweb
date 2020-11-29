@@ -35,9 +35,11 @@ public class BookManagerServlet extends BaseServlet
    
     //图书添加
     protected void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //错误的解决乱码的方式
+        req.setCharacterEncoding("utf-8");
         //1.将提交的图书信息封装为book对象,表单的name应该和对象的属性一一对应
         Book book = WebUtils.param2bean2(req, new Book());
-        System.out.println("add:"+book);
+        System.out.println("add:"+book);//book里面的中文会乱码
         //2.将图书保存到数据库
     }
 }
