@@ -46,5 +46,16 @@ public class BookManagerServlet extends BaseServlet
             resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=list");
         }
     }
+    
+    //
+    protected void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //封装要删除的book
+        Book book = WebUtils.param2bean2(req, new Book());
+        //调用删除方法
+        bookService.delete(book);
+        System.out.println("delete:"+book);
+        //回到列表显示
+        resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=list");
+    }
 }
 
