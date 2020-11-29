@@ -57,5 +57,18 @@ public class BookManagerServlet extends BaseServlet
         //回到列表显示
         resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=list");
     }
+    
+    //查出某本图书的详细信息，显示到页面
+    protected void getBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //按照id查出某本图书
+        Book book = WebUtils.param2bean2(req, new Book());
+        System.out.println("getBook:"+book);
+        //获取详细信息
+        Book one = bookService.getOne(book);
+        //回到编辑页面进行显示
+        req.setAttribute("book", one);
+        //转发到页面进行显示
+        req.getRequestDispatcher("/pages/manager/book_edit.jsp").forward(req, resp);
+    }
 }
 

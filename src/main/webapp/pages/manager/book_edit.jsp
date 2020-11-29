@@ -26,11 +26,11 @@
                         <td colspan="2">操作</td>
                     </tr>
                     <tr>
-                        <td><input name="title" type="text" value="${param.title}"/></td>
-                        <td><input name="price" type="text" value="${param.price}"/></td>
-                        <td><input name="author" type="text" value="${param.author}"/></td>
-                        <td><input name="sales" type="text" value="${param.sales}"/></td>
-                        <td><input name="stock" type="text" value="${param.stock}"/></td>
+                        <td><input name="title" type="text" value="${book.title}"/></td>
+                        <td><input name="price" type="text" value="${book.price}"/></td>
+                        <td><input name="author" type="text" value="${book.author}"/></td>
+                        <td><input name="sales" type="text" value="${book.sales}"/></td>
+                        <td><input name="stock" type="text" value="${book.stock}"/></td>
                         <td><input name="book_amount" type="submit" value="提交"/></td>
                     </tr>
                 </table>
