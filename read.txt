@@ -237,3 +237,33 @@ BookStore项目
                     将提交过来的数据封装
                     判断是否有id值，如果有id-->是update修改操作
                                     如果无id-->是add添加操作
+
+
+问题存在：
+    现在所有的图书都在列表里面.
+        1.一次性查出所有的图书，页面乱
+        2.加重了数据库负担
+     
+     解决：
+     分页显示.
+        一次取出部分数据。
+     分页的原理：limit
+        select * from bs_book limit 起始的索引，要取出的记录个数
+
+     在管理员图书列表页面，显示分页数据
+     显示层
+        Servlet控制层。BookManagerServlet-->list
+        Service层。查出部分图书(分页要求的。1,2)
+        Dao层。 查出部分图书(分页查询 limit index,size)
+        Bean层。 图书。需要一个分页模型(封装当前分页信息，当前第几页，总页数..)
+
+     分页模型Page(请看分页模型.png)   select * from bs_book limit index,pageSize
+        当前是第几页    int pageNo;
+        总页码          int totalPage;
+        总记录数        int totalCount;
+        每页显示多少条记录  int pageSize;
+        数据库查询的索引 int index;
+
+     分页模型：
+        1.创建Bean层的分页模型
+
