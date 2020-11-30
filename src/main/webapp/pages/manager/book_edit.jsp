@@ -17,6 +17,7 @@
             <form action="manager/BookManagerServlet" method="post">
                 <input type="hidden" name="method" value="update">
                 <input type="hidden" name="id" value="${book.id}">
+                <input type="hidden" name="pn" value="${param.pn}">
                 <table>
                     <tr>
                         <td>名称</td>

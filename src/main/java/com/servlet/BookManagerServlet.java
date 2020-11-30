@@ -75,6 +75,7 @@ public class BookManagerServlet extends BaseServlet
     
     //查出某本图书的详细信息，显示到页面
     protected void getBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("getBook--页码:"+req.getParameter("pn"));
         //按照id查出某本图书
         Book book = WebUtils.param2bean2(req, new Book());
         System.out.println("getBook:"+book);
@@ -88,6 +89,7 @@ public class BookManagerServlet extends BaseServlet
    
     //修改图书
     protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String pn = req.getParameter("pn");
         //封装修改的图书信息
         Book book = WebUtils.param2bean2(req, new Book());
         System.out.println("update:"+book);
@@ -100,7 +102,7 @@ public class BookManagerServlet extends BaseServlet
             bookService.update(book);
         }
         //返回列表页面
-        resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=page");
+        resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=page&pn=" + pn);
     }
 }
 
