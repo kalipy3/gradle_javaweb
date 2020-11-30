@@ -56,11 +56,15 @@ public class BookServiceImpl implements BookService
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        page.setPageNo(pn);
-        page.setPageSize(ps);
         //2.因为要使用totalCount也即是当前总记录数，所以还想要查数据库
+        //先要设置页面大小
+        page.setPageSize(ps);
         int totalCount = bd.getTotalCount();//获取总记录数
+        //再设置总记录数
         page.setTotalCount(totalCount);
+        //这样就可以算出总页面 getTotalPage();
+        
+        page.setPageNo(pn);
 
         //3.查询数据库并封装
         List<Book> list = bd.getPageList(page.getIndex(), page.getPageSize());
