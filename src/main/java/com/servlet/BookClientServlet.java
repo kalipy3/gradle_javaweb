@@ -34,5 +34,20 @@ public class BookClientServlet extends BaseServlet
         //交给页面
         req.getRequestDispatcher("/pages/book/booklist.jsp").forward(req, resp);
     }
+    
+    protected void pageByPrice(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //获取前端用户输入的价格区间
+        String max = req.getParameter("max");
+        String min = req.getParameter("min");
+        System.out.println("按照价格查询方法:min->"+min+"--max:"+max);
+
+        //查询价格区间的所有图书
+        Page<Book> page = bookService.getPageByPrice("1", "4", max, min);
+        page.setUrl("client/BookClientServlet?method=pageByPrice");
+        
+        //返回页面显示
+        req.setAttribute("page", page);
+        req.getRequestDispatcher("/pages/book/booklist.jsp").forward(req, resp);
+    }
 }
 

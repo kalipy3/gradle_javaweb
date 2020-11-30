@@ -9,6 +9,14 @@
     <body>
         <h1>网上书城</h1>
         <a href="manager/BookManagerServlet?method=page">图书管理后台</a>
+        <book_cond>
+            <!-- form默认是get提交 这里必须post，不然method=pageByPrice不会带上 -->
+            <form action="client/BookClientServlet?method=pageByPrice" method="post">
+                价格：<input type="text" name="min" value="${param.min}">元-
+                <input type="text" name="max" value="${param.max}">元
+                <button>查询</button>
+            </form>
+        </book_cond>
         <div id="book" style="display:flex">
             <c:forEach items="${page.pageData}" var="book">
                 <div class="b_list">
