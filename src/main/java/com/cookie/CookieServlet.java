@@ -40,5 +40,23 @@ public class CookieServlet extends BaseServlet
             resp.getWriter().write("<br/>cookie的value:"+value);
         }
     }
+
+    protected void delete(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+        Cookie[] cookies = req.getCookies();
+        //拿到要删除的cookie
+        Cookie cookie = null;
+        for (Cookie c : cookies) {
+            if ("username".equals(c.getName())) {
+                cookie = c;
+            }
+        }
+
+        //负数 不保存cookie 即使发给浏览器，浏览器也不会保存
+        //正数 cookie的最大存在时间 秒
+        //0 表示删除cookie
+        cookie.setMaxAge(0);
+        resp.addCookie(cookie);//这句不能少
+        resp.getWriter().write("cookie已删除");
+    }
 }
 
