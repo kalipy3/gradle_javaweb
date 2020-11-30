@@ -29,4 +29,5 @@ Http是无状态协议：
             cookie.setMaxAge(0);
          Set-Cookie:username=acher; Expires=Thu, 01-Jan-1970 00:00:00
 
-
+    4.持久化Cookie
+        cookie.setMaxAge(60*60) 表示一小时后cookie才会被删除(浏览器自己会删除)

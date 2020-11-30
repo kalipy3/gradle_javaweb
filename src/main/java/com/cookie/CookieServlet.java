@@ -58,5 +58,20 @@ public class CookieServlet extends BaseServlet
         resp.addCookie(cookie);//这句不能少
         resp.getWriter().write("cookie已删除");
     }
+    
+    protected void persist(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+        Cookie[] cookies = req.getCookies();
+        Cookie cookie = null;
+        for (Cookie c : cookies) {
+            if ("username".equals(c.getName())) {
+                cookie = c;
+            }
+        }
+
+        //修改cookie的存活时间
+        cookie.setMaxAge(60*60);
+        resp.addCookie(cookie);//这句不能少
+        resp.getWriter().write("cookie设置的存活时间是一个小时,一个小时后过期..");
+    }
 }
 
