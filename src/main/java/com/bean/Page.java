@@ -44,6 +44,7 @@ public class Page<T>
 
     public void setPageNo(int pageNo) {
         pageNo = pageNo > 0 ? pageNo : 1;
+        pageNo = pageNo>getTotalPage() ? getTotalPage():pageNo;
         this.pageNo = pageNo;
     }
 
