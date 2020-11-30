@@ -31,3 +31,6 @@ Http是无状态协议：
 
     4.持久化Cookie
         cookie.setMaxAge(60*60) 表示一小时后cookie才会被删除(浏览器自己会删除)
+
+    5.设置cookie路径：告诉浏览器访问哪些资源会携带我这个cookie.
+        默认：访问当前项目下的任何东西都会带上cookie

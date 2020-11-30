@@ -73,5 +73,16 @@ public class CookieServlet extends BaseServlet
         resp.addCookie(cookie);//这句不能少
         resp.getWriter().write("cookie设置的存活时间是一个小时,一个小时后过期..");
     }
+    
+    protected void setpath(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+        Cookie cookie = new Cookie("mycookie", "mycookie_value");
+        //表示访问hello下的资源会被带上,/代表服务器的根目录 根目录指127.0.0.1:8080/ 而不是项目的根目录
+        //告诉浏览器访问哪些路径带上此cookie
+        cookie.setPath("/hello");
+        //默认访问当前项目下的所有资源都会带上
+        resp.addCookie(cookie);
+
+        resp.getWriter().write("cookie的路径被修改了..");
+    }
 }
 
