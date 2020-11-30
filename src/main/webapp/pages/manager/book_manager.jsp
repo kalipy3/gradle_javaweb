@@ -91,6 +91,11 @@
                     <c:set var="begin" value="${page.pageNo-2}" scope="page"></c:set>
                     <c:set var="end" value="${page.pageNo+2}" scope="page"></c:set>
                 </c:if>
+                <!-- 当前页码+2大于总页码 end就到总页码结束 begin:总页码-4 -->
+                <c:if test="${page.pageNo+2 >= page.totalPage}">
+                    <c:set var="begin" value="${page.totalPage-4}" scope="page"></c:set>
+                    <c:set var="end" value="${page.totalPage}" scope="page"></c:set>
+                </c:if>
             </c:if>
 
 
