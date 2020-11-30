@@ -37,7 +37,7 @@
                 <td>库存</td>
                 <td colspan="2">操作</td>
             </tr>
-            <c:forEach items="${requestScope.list}" var="book">
+            <c:forEach items="${requestScope.page.pageData}" var="book">
             <!-- 这里是每一本书的详细信息 -->
                 <tr>
                     <td>${book.title}</td>
@@ -58,5 +58,21 @@
                 <td><a href="pages/manager/book_edit.jsp">添加图书</a></td>
             </tr>
         </table>
+
+        <div id="page_nav">
+            <a href="manager/BookManagerServlet?method=page&pn=1">首页</a>
+            <c:if test="${page.hasPrev}">
+                <a href="manager/BookManagerServlet?method=page&pn=${page.pageNo-1}">上一页</a>
+            </c:if>
+            <a href="#">3</a>
+            【${page.pageNo}】
+            <a href="#">5</a>
+            <c:if test="${page.hasNext}">
+                <a href="manager/BookManagerServlet?method=page&pn=${page.pageNo+1}">下一页</a>
+            </c:if>
+            <a href="manager/BookManagerServlet?method=page&pn=${page.totalPage}">末页</a>
+            共${page.totalPage}页，${page.totalCount}条记录到<input value="4" name="pn" id="pn_input" />页
+            <input type="button" value="确定">
+        </div>
     </body>
 </html>

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bean.Book;
+import com.bean.Page;
 import com.service.BookService;
 import com.service.BookServiceImpl;
 import com.servlet.BaseServlet;
@@ -23,6 +24,17 @@ import com.utils.WebUtils;
 public class BookManagerServlet extends BaseServlet
 {
     private BookService bookService = new BookServiceImpl();
+    
+    protected void page(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("进入分页逻辑");
+        //用户点击图书管理显示部分数据,页码应该是用户传进来的
+        String pn = req.getParameter("pn");
+        Page<Book> page = bookService.getPage(pn, "4");
+        //将第一页的数据放到页面显示
+        req.setAttribute("page", page);
+        //交给页面
+        req.getRequestDispatcher("/pages/manager/book_manager.jsp").forward(req, resp);
+    }
 
     protected void list(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //查出所有图书数据并显示

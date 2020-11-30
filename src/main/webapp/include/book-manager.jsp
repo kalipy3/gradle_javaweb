@@ -7,6 +7,6 @@
     </head>
     <body>
         <!-- 管理员发送显示图书列表请求 -->
-        <a href="manager/BookManagerServlet?method=list">图书管理</a>
+        <a href="manager/BookManagerServlet?method=page">图书管理</a>
     </body>
 </html>

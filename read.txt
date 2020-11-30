@@ -271,3 +271,8 @@ BookStore项目
             获取总记录数的方法 int getTotalCount();
         3.service层
 
+        4.Servlet层
+            第一请求显示图书列表，应该只显示第一页数据
+            list()
+            page()
+
