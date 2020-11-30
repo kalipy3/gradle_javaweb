@@ -73,8 +73,29 @@
                 <a href="manager/BookManagerServlet?method=page&pn=${page.pageNo-1}">上一页</a>
             </c:if>
 
+            <!-- 总页码在五页以内 -->
+            <c:if test="${page.totalPage <= 5}">
+                <!-- 给begin和end赋值 -->
+                <c:set var="begin" value="1" scope="page"></c:set>
+                <c:set var="end" value="${page.totalPage}" scope="page"></c:set>
+            </c:if>
+            <!-- 总页码在五页以上，才使用连续显示五页的逻辑 -->
+            <c:if test="${page.totalPage > 5}">
+                <!-- 当前页码小于3 -->
+                <c:if test="${page.pageNo <= 3}">
+                    <c:set var="begin" value="1" scope="page"></c:set>
+                    <c:set var="end" value="5" scope="page"></c:set>
+                </c:if>
+                <!-- 当前页码大于3 -->
+                <c:if test="${page.pageNo > 3}">
+                    <c:set var="begin" value="${page.pageNo-2}" scope="page"></c:set>
+                    <c:set var="end" value="${page.pageNo+2}" scope="page"></c:set>
+                </c:if>
+            </c:if>
+
+
             <!-- 显示所有页码 -->
-            <c:forEach begin="1" end="${page.totalPage}" var="pnum">
+            <c:forEach begin="${begin}" end="${end}" var="pnum">
                 <!-- 判断当前遍历的页码号是否为当前页码，是的话就不加链接 -->
                 <c:if test="${pnum == page.pageNo}">
                     【${page.pageNo}】
