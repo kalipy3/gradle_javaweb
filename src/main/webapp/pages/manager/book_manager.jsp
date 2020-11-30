@@ -72,9 +72,19 @@
             <c:if test="${page.hasPrev}">
                 <a href="manager/BookManagerServlet?method=page&pn=${page.pageNo-1}">上一页</a>
             </c:if>
-            <a href="#">3</a>
-            【${page.pageNo}】
-            <a href="#">5</a>
+
+            <!-- 显示所有页码 -->
+            <c:forEach begin="1" end="${page.totalPage}" var="pnum">
+                <!-- 判断当前遍历的页码号是否为当前页码，是的话就不加链接 -->
+                <c:if test="${pnum == page.pageNo}">
+                    【${page.pageNo}】
+                </c:if>
+                <!-- 不是当前页码，则加超链接 -->
+                <c:if test="${pnum != page.pageNo}">
+                    <a href="manager/BookManagerServlet?method=page&pn=${pnum}">${pnum}</a>
+                </c:if>
+            </c:forEach>
+            
             <c:if test="${page.hasNext}">
                 <a href="manager/BookManagerServlet?method=page&pn=${page.pageNo+1}">下一页</a>
             </c:if>
