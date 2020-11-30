@@ -1,11 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page isELIgnored="false" %>
+        <script type="text/javascript">
+                $(function(){
+                    $("#gotopage").click(function(){
+                        //alert("Hello");
+                        //用户输入了我们要去第几页
+                        //1.获取到1用户输入的值
+                        var pn = $("#pn_input").val();
+                        //2.发送新的分页请求
+                        //var url = "${page.url}"//ok
+                        //var url = ${page.url}//错误写法，至于为什么，请浏览器看html
+                        window.location.href = "${page.url}&pn="+pn;
+                    });
+                });
+        </script>
 
         <div id="page_nav">
-            <a href="manager/BookManagerServlet?method=page&pn=1">首页</a>
+            <a href="${page.url}&pn=1">首页</a>
             <c:if test="${page.hasPrev}">
-                <a href="manager/BookManagerServlet?method=page&pn=${page.pageNo-1}">上一页</a>
+                <a href="${page.url}&pn=${page.pageNo-1}">上一页</a>
             </c:if>
 
             <!-- 总页码在五页以内 -->
@@ -42,14 +56,14 @@
                 </c:if>
                 <!-- 不是当前页码，则加超链接 -->
                 <c:if test="${pnum != page.pageNo}">
-                    <a href="manager/BookManagerServlet?method=page&pn=${pnum}">${pnum}</a>
+                    <a href="${page.url}&pn=${pnum}">${pnum}</a>
                 </c:if>
             </c:forEach>
             
             <c:if test="${page.hasNext}">
-                <a href="manager/BookManagerServlet?method=page&pn=${page.pageNo+1}">下一页</a>
+                <a href="${page.url}&pn=${page.pageNo+1}">下一页</a>
             </c:if>
-            <a href="manager/BookManagerServlet?method=page&pn=${page.totalPage}">末页</a>
+            <a href="${page.url}&pn=${page.totalPage}">末页</a>
             共${page.totalPage}页，${page.totalCount}条记录到<input value="${page.pageNo}" name="pn" id="pn_input" />页
             <input type="button" value="确定" id="gotopage">
         </div>

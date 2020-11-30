@@ -35,6 +35,17 @@ public class Page<T>
     //封装了查询出来的分页数据
     private List<T> pageData;
 
+    //page.jsp想要复用，应该要是动态的。所以把servlet url进行路径封装
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
 	public Page() {
     }
 

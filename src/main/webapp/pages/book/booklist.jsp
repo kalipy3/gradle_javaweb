@@ -7,6 +7,8 @@
         <%@include file="/include/base.jsp" %>
     </head>
     <body>
+        <h1>网上书城</h1>
+        <a href="manager/BookManagerServlet?method=page">图书管理后台</a>
         <div id="book" style="display:flex">
             <c:forEach items="${page.pageData}" var="book">
                 <div class="b_list">
@@ -38,5 +40,6 @@
                 </div>
             </c:forEach>
         </div>
+        <%@include file="/include/page.jsp" %>
     </body>
 </html>

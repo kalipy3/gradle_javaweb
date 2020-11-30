@@ -30,6 +30,7 @@ public class BookManagerServlet extends BaseServlet
         //用户点击图书管理显示部分数据,页码应该是用户传进来的
         String pn = req.getParameter("pn");
         Page<Book> page = bookService.getPage(pn, "4");
+        page.setUrl("manager/BookManagerServlet?method=page");
         //将第一页的数据放到页面显示
         req.setAttribute("page", page);
         //交给页面
