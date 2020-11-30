@@ -62,13 +62,15 @@ public class BookManagerServlet extends BaseServlet
     
     //
     protected void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String pn = req.getParameter("pn");
+        System.out.println("当前停留的页码:"+pn);
         //封装要删除的book
         Book book = WebUtils.param2bean2(req, new Book());
         //调用删除方法
         bookService.delete(book);
         System.out.println("delete:"+book);
         //回到列表显示
-        resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=page");
+        resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=page&pn=" + pn);
     }
     
     //查出某本图书的详细信息，显示到页面
