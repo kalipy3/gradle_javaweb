@@ -51,4 +51,13 @@
         <servlet-name>BookClientServlet</servlet-name>
         <url-pattern>/client/BookClientServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CookieServlet</servlet-name>
+        <servlet-class>com.cookie.CookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookieServlet</servlet-name>
+        <url-pattern>/CookieServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

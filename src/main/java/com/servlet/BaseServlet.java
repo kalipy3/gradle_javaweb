@@ -37,6 +37,7 @@ public class BaseServlet extends HttpServlet
         //}
         //应该在还未获取数据之前设置的编码方式来解决乱码问题
         req.setCharacterEncoding("utf-8");
+        resp.setContentType("text/html;charset=utf-8");
         String method = req.getParameter("method");
         System.out.println(method);
         //getDeclaredMethod(方法名，参数列表)
