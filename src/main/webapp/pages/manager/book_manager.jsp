@@ -20,6 +20,14 @@
                             return false;
                         }
                     });
+                    $("#gotopage").click(function(){
+                        //alert("Hello");
+                        //用户输入了我们要去第几页
+                        //1.获取到1用户输入的值
+                        var pn = $("#pn_input").val();
+                        //2.发送新的分页请求
+                        window.location.href = "manager/BookManagerServlet?method=page&pn="+pn;
+                    });
                 });
         </script>
     </head>
@@ -71,8 +79,8 @@
                 <a href="manager/BookManagerServlet?method=page&pn=${page.pageNo+1}">下一页</a>
             </c:if>
             <a href="manager/BookManagerServlet?method=page&pn=${page.totalPage}">末页</a>
-            共${page.totalPage}页，${page.totalCount}条记录到<input value="4" name="pn" id="pn_input" />页
-            <input type="button" value="确定">
+            共${page.totalPage}页，${page.totalCount}条记录到<input value="${page.pageNo}" name="pn" id="pn_input" />页
+            <input type="button" value="确定" id="gotopage">
         </div>
     </body>
 </html>
