@@ -75,5 +75,44 @@ public class BookServiceImpl implements BookService
     public BookServiceImpl() {
 
     }
+    
+    //获取分页数据
+    @Override
+    public Page<Book> getPageByPrice(String pageNo, String pageSize, String maxPrice, String minPrice) {
+        double min = 0.0;
+        double max = Double.MAX_VALUE;
+        try {
+            min = Double.parseDouble(minPrice);
+            max = Double.parseDouble(maxPrice);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        
+        //1.将用户传入的数据先封装部分
+        Page<Book> page = new Page<Book>();
+        //将用户传入的数据转型并封装,设置默认值
+        int pn = 1;
+        int ps = page.getPageSize();
+        try {
+            pn = Integer.parseInt(pageNo);
+            ps = Integer.parseInt(pageSize);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        //2.将页码以及页面大小设置进page对象
+        //按照价格区间获取总记录数
+        int count = bd.getTotalCountByPrice(min, max);
+        page.setTotalCount(count);
+        page.setPageSize(ps);
+        //注释最后设置
+        page.setPageNo(pn);
+
+        //3.查询相应数据
+        List<Book> list = bd.getPageByPrice(page.getIndex(), page.getPageSize(), min, max);
+
+        //4.封装进page对象
+        page.setPageData(list);
+        return page;
+    }
 }
 

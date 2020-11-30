@@ -26,5 +26,7 @@ public interface BookService
 
     //返回分页数据
     public Page<Book> getPage(String pageNo, String pageSize);
+    
+    public Page<Book> getPageByPrice(String pageNo, String pageSize, String maxPrice, String minPrice);
 }
 

@@ -302,6 +302,17 @@ BookStore项目
             我们应该让它停留在修改或删除时的那一夜
 
         7.分页抽取
+
+        8.带条件的查询
+            价格：xx元-xx元 查询
+
+            点击查询-->通过Servlet处理-->按照要求查询并返回页面显示
+
+            显示层
+            控制器BookClientServlet-->page,只是简单的分页方法.基于原分页之上，带条件查询
+            service bookservice-->getPage();带上查询条件查询
+            dao-->编写一个条件查询的方法(价格区间)
+            bean
                     
 
 

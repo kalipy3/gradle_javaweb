@@ -65,14 +65,14 @@ public class BookDaoTest
 	}
 
     @Test
-    public void test6() {
+    public void test7() {
         BookService bs = new BookServiceImpl();
-        Page<Book> page = bs.getPage("1", "4");
-        System.out.println("test6--pageData:"+page.getPageData());
-        System.out.println("test6--pageNo:"+page.getPageNo());
-        System.out.println("test6--pageSize:"+page.getPageSize());
-        System.out.println("test6--TotalCount:"+page.getTotalCount());
-        System.out.println("test6--TotalPage:"+page.getTotalPage());
+        Page<Book> page = bs.getPageByPrice("1", "4", "2000", "1000");
+        System.out.println("test7--pageData:"+page.getPageData());
+        System.out.println("test7--pageNo:"+page.getPageNo());
+        System.out.println("test7--pageSize:"+page.getPageSize());
+        System.out.println("test7--TotalCount:"+page.getTotalCount());
+        System.out.println("test7--TotalPage:"+page.getTotalPage());
     }
 }
 

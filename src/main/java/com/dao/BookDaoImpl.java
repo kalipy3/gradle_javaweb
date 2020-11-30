@@ -2,6 +2,7 @@ package com.dao;
 import java.util.List;
 
 import com.bean.Book;
+import com.bean.Page;
 import com.dao.BaseDao;
 import com.dao.BookDao;
 /*
@@ -57,6 +58,13 @@ public class BookDaoImpl extends BaseDao<Book> implements BookDao
         String sql = "select id, title, author, price, sales, stock, img_path imgPath from bs_book limit ?,?";
         return getBeanList(sql, index, size);
     }
+    
+    //根据图书价格查询图书
+    @Override 
+    public List<Book> getPageByPrice(int index, int size, double minPrice, double maxPrice) {
+        String sql = "select id, title, author, price, sales, stock, img_path imgPath from bs_book where price between ? and ? limit ?,?";
+        return getBeanList(sql, minPrice, maxPrice, index, size);
+    }
 	
     public BookDaoImpl() {
 		
@@ -73,6 +81,19 @@ public class BookDaoImpl extends BaseDao<Book> implements BookDao
             e.printStackTrace();
         }
         return parseInt;
+    }
+
+    @Override
+    public int getTotalCountByPrice(double minPrice, double maxPrice) {
+        String sql = "select count(*) from bs_book where price between ? and ?";
+        Object object = getSingleValue(sql, minPrice, maxPrice);
+        int i = 0;
+        try {
+            i = Integer.parseInt(object.toString());
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return i;
     }
 }
 

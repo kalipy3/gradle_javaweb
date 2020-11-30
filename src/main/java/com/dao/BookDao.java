@@ -1,7 +1,9 @@
 package com.dao;
 
 import java.util.List;
+
 import com.bean.Book;
+import com.bean.Page;
 
 /*
  * BookDao.java
@@ -35,6 +37,12 @@ public interface BookDao
     //@param size
     public List<Book> getPageList(int index, int size);
 
+    //获取所有图书的总记录数
     public int getTotalCount();
+    
+    public int getTotalCountByPrice(double minPrice, double maxPrice);
+   
+    //按照价格查找图书
+    public List<Book> getPageByPrice(int pageNo, int pageSize, double minPrice, double maxPrice);
 }
 
