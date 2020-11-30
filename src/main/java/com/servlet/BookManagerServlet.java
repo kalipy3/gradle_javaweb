@@ -36,6 +36,7 @@ public class BookManagerServlet extends BaseServlet
         req.getRequestDispatcher("/pages/manager/book_manager.jsp").forward(req, resp);
     }
 
+    //显示图书列表 现在没用了，我们用page方法显示部分数据
     protected void list(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //查出所有图书数据并显示
         List<Book> list = bookService.getAll();
@@ -55,7 +56,7 @@ public class BookManagerServlet extends BaseServlet
 
         if (b) {
             //3.保存成功，重回列表页面，列表显示
-            resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=list");
+            resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=page");
         }
     }
     
@@ -67,7 +68,7 @@ public class BookManagerServlet extends BaseServlet
         bookService.delete(book);
         System.out.println("delete:"+book);
         //回到列表显示
-        resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=list");
+        resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=page");
     }
     
     //查出某本图书的详细信息，显示到页面
@@ -97,7 +98,7 @@ public class BookManagerServlet extends BaseServlet
             bookService.update(book);
         }
         //返回列表页面
-        resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=list");
+        resp.sendRedirect(req.getContextPath()+"/manager/BookManagerServlet?method=page");
     }
 }
 
