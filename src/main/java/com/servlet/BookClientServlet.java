@@ -39,11 +39,12 @@ public class BookClientServlet extends BaseServlet
         //获取前端用户输入的价格区间
         String max = req.getParameter("max");
         String min = req.getParameter("min");
+        String pn = req.getParameter("pn");
         System.out.println("按照价格查询方法:min->"+min+"--max:"+max);
 
         //查询价格区间的所有图书
-        Page<Book> page = bookService.getPageByPrice("1", "4", max, min);
-        page.setUrl("client/BookClientServlet?method=pageByPrice");
+        Page<Book> page = bookService.getPageByPrice(pn, "4", max, min);
+        page.setUrl("client/BookClientServlet?method=pageByPrice&max="+max+"&min="+min);
         
         //返回页面显示
         req.setAttribute("page", page);

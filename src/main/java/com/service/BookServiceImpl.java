@@ -84,7 +84,7 @@ public class BookServiceImpl implements BookService
         try {
             min = Double.parseDouble(minPrice);
             max = Double.parseDouble(maxPrice);
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         

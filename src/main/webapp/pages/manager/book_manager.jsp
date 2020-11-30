@@ -27,6 +27,7 @@
         <div id="header">
             <h1>图书管理系统</h1>
             <%@include file="/include/book-manager.jsp" %>
+            <a href="index.jsp">返回商城</a>
         </div>
         <table>
             <tr>
