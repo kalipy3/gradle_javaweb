@@ -64,5 +64,12 @@ public class SessionServlet extends BaseServlet
         session.setMaxInactiveInterval(3);
         resp.getWriter().write("sesseion将于3秒后过期");
     }
+    
+    protected void invalid(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        //强制session立即失效
+        session.invalidate();
+        resp.getWriter().write("sesseion已经失效");
+    }
 }
 
