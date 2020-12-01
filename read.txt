@@ -89,6 +89,10 @@ session:
     2.session保存数据共享数据
     3.生命周期
         创建：第一次用session会创建一个新的session
+            1.第一次获取
+                html(使用servletrequest)
+                .jsp(已经内置了session获取好了，请看jsp编译后的.class)
+
         销毁：
             1.默认30分钟后session销毁
             2.手动设置session多少秒后过期session.setMaxInactiveInterval(3);
@@ -96,3 +100,8 @@ session:
 
             1)新的会话获取的session是新的，和cookie的生命周期有关系。浏览器打开关闭开启新的会话并不会导致之前的session销毁。只是找不到之前的session了
             2)session在服务器有很多的垃圾..
+
+    4.cookie被禁止
+        导致会话控制会失效
+        解决：
+            使用url重写

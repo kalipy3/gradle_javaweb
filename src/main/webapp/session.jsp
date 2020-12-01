@@ -7,6 +7,6 @@
         <title></title>
     </head>
     <body>
-        ${user}
+        ${sessAttr}
     </body>
 </html>
