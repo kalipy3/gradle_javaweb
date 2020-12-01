@@ -107,3 +107,10 @@ session:
         解决：
             使用url重写
                 当cookie被禁止，可以使用url重写(把要访问的地址动态的加上jsessionid)
+
+    5.session的活化与钝化
+        现象：服务器关闭重新启动，只要浏览器没关，还是可以获取到session里面的内容
+        钝化：服务器关闭以后，会将session序列化保存到硬盘里。可以在work/当前项目下观察SESSION.ser
+        活化：服务器再次启动，会把之前序列化好的文件加载进来。就会再次加载之前保存的session,SESSION.ser包含了session域中的所有内容
+
+        session域中的对象要能同session一起钝化到磁盘中，必须实现序列化接口，否则钝化不了，比如在jsp中new User(),而User类没有implements Serializable的话
