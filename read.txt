@@ -106,3 +106,4 @@ session:
         导致会话控制会失效
         解决：
             使用url重写
+                当cookie被禁止，可以使用url重写(把要访问的地址动态的加上jsessionid)
