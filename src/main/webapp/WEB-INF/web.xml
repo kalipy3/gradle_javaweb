@@ -3,6 +3,12 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+
+    <!-- 设置session存活时间为60s -->
+    <session-config>
+        <session-timeout>1</session-timeout>
+    </session-config>
+
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

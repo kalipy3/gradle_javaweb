@@ -56,5 +56,13 @@ public class SessionServlet extends BaseServlet
         int interval = session.getMaxInactiveInterval();
         resp.getWriter().write("sesseion存活时间：" + interval);
     }
+    
+    protected void updatetime(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        //1.传入负数：代表永不过期
+        //2.传入正数：代表多少秒后过期，距离最后一次使用session的时间
+        session.setMaxInactiveInterval(3);
+        resp.getWriter().write("sesseion将于3秒后过期");
+    }
 }
 
