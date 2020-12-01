@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
         <title>Success</title>
         <%@include file="/include/base.jsp" %>
-        <%@include file="/include/user-success.jsp" %>
+        <%@include file="/include/user-info.jsp" %>
     </head>
     <body>
         <h1>登录成功！</h1>

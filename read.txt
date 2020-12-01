@@ -336,3 +336,5 @@ BookStore项目
         service;
         servlet;在servlet将session清空即可
         logout()
+
+    3.根据session中是否有user对象就可以知道用户是否已经登录
