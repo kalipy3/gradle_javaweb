@@ -25,5 +25,13 @@ public class SessionServlet extends BaseServlet
         boolean new1 = session.isNew();
         resp.getWriter().write("已经获取到session对象.."+new1);
     }
+    
+    protected void save(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException {
+        //获取session对象
+        HttpSession session = req.getSession();
+        //给session域中保存数据
+        session.setAttribute("user", "umy");
+        resp.getWriter().write("session域中保存了数据");
+    }
 }
 

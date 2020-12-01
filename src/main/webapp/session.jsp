@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;Charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page isELIgnored="false" %>
 
 <html lang="en">
     <head>
@@ -6,6 +7,6 @@
         <title></title>
     </head>
     <body>
-
+        ${user}
     </body>
 </html>
