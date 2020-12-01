@@ -9,6 +9,12 @@
         <%
         session.setAttribute("sessAttr", "sessionValue");
         %>
-        <a href="session.jsp">去其它页面获取数据</a>
+        <!-- 重写url -->
+        <%=
+        response.encodeRedirectURL(request.getContextPath()+"/session.jsp")
+        %>
+        <a href="<%=
+        response.encodeRedirectURL(request.getContextPath()+"/session.jsp")
+        %>">去其它页面获取数据</a>
     </body>
 </html>
