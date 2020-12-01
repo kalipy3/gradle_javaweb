@@ -45,5 +45,16 @@ public class SessionServlet extends BaseServlet
         String attribute = (String) session.getAttribute("user");
         resp.getWriter().write("sesseion域中取出的数据"+attribute);
     }
+    
+    protected void time(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException {
+        //获取session中的内容
+        HttpSession session = req.getSession();
+        //获取session中最大存活时间 以秒为单位
+        //session默认是30min,为什么新的会话开启会返回新session
+        //因为获取session是根据cookie带来的jsessionid来获取的。而cookie是默认关闭浏览器了就销毁了
+        //再来获取session,就会返回新的session,就得session还在，只是找不到了
+        int interval = session.getMaxInactiveInterval();
+        resp.getWriter().write("sesseion存活时间：" + interval);
+    }
 }
 

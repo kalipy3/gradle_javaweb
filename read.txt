@@ -79,3 +79,14 @@ Session创建流程02：
     服务器:                                                             |
             2.创建一个session:                                         \|/
             id:xx01              <--------------------------------------                                                     6.服务器是通过请求头中的jsessionid来                                               找到对应的session。
+
+session:
+    作用
+        域对象共享数据
+
+    1.可以在cookie中保存用户身份
+        获取session
+    2.session保存数据共享数据
+    3.生命周期
+        创建：第一次用session会创建一个新的session
+        销毁：默认30分钟后session销毁
