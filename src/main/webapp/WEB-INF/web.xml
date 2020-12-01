@@ -51,4 +51,13 @@
         <servlet-name>BookClientServlet</servlet-name>
         <url-pattern>/client/BookClientServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UserServlet_FormReSubmit</servlet-name>
+        <servlet-class>com.servlet.UserServlet_FormReSubmit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet_FormReSubmit</servlet-name>
+        <url-pattern>/UserServlet_FormReSubmit</url-pattern>
+    </servlet-mapping>
 </web-app>
