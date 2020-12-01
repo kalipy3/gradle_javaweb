@@ -28,7 +28,8 @@ public class UserServlet_FormReSubmit extends HttpServlet
         //}
         String username = req.getParameter("username");
         System.out.println(username + "已经保存到数据库");
-        req.getRequestDispatcher("/success_formresubmit.jsp").forward(req, resp);
+        //req.getRequestDispatcher("/success_formresubmit.jsp").forward(req, resp);
+        resp.sendRedirect(req.getContextPath()+"/success_formresubmit.jsp");//注意：转发是req.xx,重定向是resp.xx
     }
 }
 
