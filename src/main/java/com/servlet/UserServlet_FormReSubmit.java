@@ -21,11 +21,11 @@ public class UserServlet_FormReSubmit extends HttpServlet
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException {
-        //try {
-        //    Thread.sleep(3000);
-        //} catch (InterruptedException e) {
-        //    e.printStackTrace();
-        //}
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         String username = req.getParameter("username");
         System.out.println(username + "已经保存到数据库");
         //req.getRequestDispatcher("/success_formresubmit.jsp").forward(req, resp);
