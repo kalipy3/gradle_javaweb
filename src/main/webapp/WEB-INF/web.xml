@@ -60,4 +60,13 @@
         <servlet-name>CookieServlet</servlet-name>
         <url-pattern>/CookieServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CookieLoginServlet</servlet-name>
+        <servlet-class>com.cookie.CookieLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookieLoginServlet</servlet-name>
+        <url-pattern>/CookieLoginServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
