@@ -23,7 +23,9 @@ public class SessionServlet extends BaseServlet
         HttpSession session = req.getSession();
         //判断session是否是新创建的
         boolean new1 = session.isNew();
+        String id = session.getId();
         resp.getWriter().write("已经获取到session对象.."+new1);
+        resp.getWriter().write("<br/>sessionid:"+id);
     }
     
     protected void save(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException {
