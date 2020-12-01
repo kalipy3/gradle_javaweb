@@ -34,3 +34,6 @@ Http是无状态协议：
 
     5.设置cookie路径：告诉浏览器访问哪些资源会携带我这个cookie.
         默认：访问当前项目下的任何东西都会带上cookie
+
+    6.修改cookie
+        浏览器如何识别同一个cookie 根据cookie的name

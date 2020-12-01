@@ -84,5 +84,18 @@ public class CookieServlet extends BaseServlet
 
         resp.getWriter().write("cookie的路径被修改了..");
     }
+    
+    protected void update(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+        Cookie[] cookies = req.getCookies();
+        Cookie cookie = null;
+        for (Cookie c : cookies) {
+            if ("username".equals(c.getName())) {
+                cookie = c;
+            }
+        }
+        cookie.setValue("yousa");
+        resp.addCookie(cookie);
+        resp.getWriter().write("cookie已经修改");
+    }
 }
 
