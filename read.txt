@@ -50,3 +50,32 @@ Session:
 
     session就是当前会话对象，他可以共享当前会话的数据
     服务器会给每个会话(重新启动，切换浏览器)创建独立的session。只为每个会话创建一个session,第一次获取的就是新创建的，以后用户都是之前创建的
+
+Session创建流程01：
+                    浏览器1                 浏览器2                     浏览器3
+                     |                      |                            |
+    第一次使用session|     第一次使用session|           第一次使用session|
+                     |                      |                            |
+                     |                      |                            |
+                    \|/                    \|/                          \|/
+    服务器:
+            创建一个session:            创建一个session:         创建一个session:
+            id:xx01                     id:xx02                     id:xx03
+
+
+Session创建流程02：
+                    浏览器1----------------------------------------------
+                   4.jsessionid=xx01                                    |
+                     |     命令浏览器保存session的id                    |
+                     |      ^                                   Request Headers:
+  1.第一次使用session|      |                           Cookie:JSESSIONID=xx01
+                     |      |                                           |
+                     |     Response Headers:                            |
+                     |     3.Set-Cookie:JSESSIONID=xx01                 |
+                     |      |                                 5.获取user|
+                     |      |                                           | 
+                     |      |                                           |
+                    \|/     |                                           |
+    服务器:                                                             |
+            2.创建一个session:                                         \|/
+            id:xx01              <--------------------------------------                                                     6.服务器是通过请求头中的jsessionid来                                               找到对应的session。

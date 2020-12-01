@@ -1,6 +1,7 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -32,8 +33,10 @@ public class SessionServlet extends BaseServlet
         //获取session对象
         HttpSession session = req.getSession();
         //给session域中保存数据
-        session.setAttribute("user", "umy");
-        resp.getWriter().write("session域中保存了数据");
+        String string = UUID.randomUUID().toString().substring(0, 8);
+        session.setAttribute("user", string);
+
+        resp.getWriter().write("session域中保存了数据:"+string);
     }
     
     protected void getvalue(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException {
