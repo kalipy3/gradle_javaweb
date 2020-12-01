@@ -33,5 +33,12 @@ public class SessionServlet extends BaseServlet
         session.setAttribute("user", "umy");
         resp.getWriter().write("session域中保存了数据");
     }
+    
+    protected void getvalue(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException {
+        //获取session中的内容
+        HttpSession session = req.getSession();
+        String attribute = (String) session.getAttribute("user");
+        resp.getWriter().write("sesseion域中取出的数据"+attribute);
+    }
 }
 
