@@ -62,5 +62,13 @@ public class UserServlet extends BaseServlet
         }
     }
 
+    //用户登出
+    protected void logout(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
+        HttpSession session = req.getSession();
+        //销毁session即可
+        session.invalidate();
+        //点击登出以后返回商城首页
+        resp.sendRedirect(req.getContextPath()+"/index.jsp");
+    }
 }
 
