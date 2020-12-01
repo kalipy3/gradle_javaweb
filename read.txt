@@ -92,6 +92,7 @@ session:
             1.第一次获取
                 html(使用servletrequest)
                 .jsp(已经内置了session获取好了，请看jsp编译后的.class)
+                    刚才之所以禁止cookie后获取不到数据，是因为禁止cookie后每次浏览器都不会带上jsesseionid，而去其它页面获取数据的链接是另一个jsp文件，当浏览器访问它时，jsp对应的.class又会内置获取好session，但是由于cookie被禁止，服务器会创建新的session,此时的jsessionid已经和上次不一样了，所以服务器找不到上次的数据了,况且禁止cookie后每次浏览器都不会带上jseesionid
 
         销毁：
             1.默认30分钟后session销毁
