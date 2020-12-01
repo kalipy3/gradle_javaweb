@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bean.User;
 import com.service.UserService;
@@ -47,6 +48,9 @@ public class UserServlet extends BaseServlet
         //方法二
         User user2 = WebUtils.param2bean2(req, new User());
         User user = us.login(user2);
+        //将用户保存到session中
+        HttpSession session = req.getSession();
+        session.setAttribute("user", user);
         if (user == null) {
             //登录失败 返回登录页面即可 转发
             req.setAttribute("msg", "用户名密码错误");
