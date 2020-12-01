@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -70,6 +71,18 @@ public class SessionServlet extends BaseServlet
         //强制session立即失效
         session.invalidate();
         resp.getWriter().write("sesseion已经失效");
+    }
+    
+    protected void presist(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException {
+        //浏览器关闭也可以保持session,下次访问还可以访问到之前的session
+        //将jsessionid这个cookie持久化即可 jsessionid=xxxx
+        HttpSession session = req.getSession();
+        String id = session.getId();
+        Cookie cookie = new Cookie("JSESSIONID", id);
+        //设置cookie的持久时间
+        cookie.setMaxAge(60*60);
+        resp.addCookie(cookie);
+        resp.getWriter().write("sesseion已经保持了..");
     }
 }
 
