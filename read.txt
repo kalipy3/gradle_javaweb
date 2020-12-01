@@ -338,3 +338,4 @@ BookStore项目
         logout()
 
     3.根据session中是否有user对象就可以知道用户是否已经登录
+
