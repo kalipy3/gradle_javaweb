@@ -86,14 +86,9 @@ public class CookieServlet extends BaseServlet
     }
     
     protected void update(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        Cookie[] cookies = req.getCookies();
-        Cookie cookie = null;
-        for (Cookie c : cookies) {
-            if ("username".equals(c.getName())) {
-                cookie = c;
-            }
-        }
-        cookie.setValue("yousa");
+        //创建一个同名cookie
+        Cookie cookie = new Cookie("username", "zzk");
+        //浏览器就会将同名cookie覆盖掉
         resp.addCookie(cookie);
         resp.getWriter().write("cookie已经修改");
     }
