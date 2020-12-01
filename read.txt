@@ -114,3 +114,4 @@ session:
         活化：服务器再次启动，会把之前序列化好的文件加载进来。就会再次加载之前保存的session,SESSION.ser包含了session域中的所有内容
 
         session域中的对象要能同session一起钝化到磁盘中，必须实现序列化接口，否则钝化不了，比如在jsp中new User(),而User类没有implements Serializable的话
+
