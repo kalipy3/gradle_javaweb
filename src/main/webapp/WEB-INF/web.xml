@@ -62,11 +62,11 @@
     </servlet-mapping>
     
     <servlet>
-        <servlet-name>CookieLoginServlet</servlet-name>
-        <servlet-class>com.cookie.CookieLoginServlet</servlet-class>
+        <servlet-name>SessionServlet</servlet-name>
+        <servlet-class>com.servlet.SessionServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>CookieLoginServlet</servlet-name>
-        <url-pattern>/CookieLoginServlet</url-pattern>
+        <servlet-name>SessionServlet</servlet-name>
+        <url-pattern>/SessionServlet</url-pattern>
     </servlet-mapping>
 </web-app>
