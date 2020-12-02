@@ -17,6 +17,16 @@
                 <button>查询</button>
             </form>
         </book_cond>
+        
+        <div style="text-align: center">
+            <span>您的购物车中有
+                <c:out value="${cart.totalCount}" default="0"></c:out>
+                件商品</span>
+            <div>
+                您刚刚将<span style="color: red">时间剑圣</span>加入到购物车
+            </div>
+        </div>
+
         <div id="book" style="display:flex">
             <c:forEach items="${page.pageData}" var="book">
                 <div class="b_list">
@@ -43,6 +53,9 @@
                         <div class="book_amount">
                             <span>库存:</span>
                             <span>${book.stock}</span>
+                        </div>
+                        <div class="book_add">
+                            <a style="color: blue;" href="client/CartServlet?method=add&id=${book.id}">加入购物车</a>
                         </div>
                     </div>
                 </div>

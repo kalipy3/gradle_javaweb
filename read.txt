@@ -351,7 +351,6 @@ BookStore项目
             3.基于数据库，把购买的物品保存到数据库中。
 
         模型层：
-        控制器：
             方法
                 void addBook2Cart(Book book);//在页面直接传入图书id
                 void deleteItem(String bookid);//删除一个购物车
@@ -364,3 +363,7 @@ BookStore项目
         Dao:不用写
 
         double,float在进行运算的时候会产生精度问题
+        
+        控制器：
+            添加图书到购物车:
+                用户在页面点击添加购物车，将图书id提交过去。在购物车中保存相应的条目
