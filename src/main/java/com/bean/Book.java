@@ -1,4 +1,7 @@
 package com.bean;
+
+import java.io.Serializable;
+
 /*
  * Book.java
  * Copyright (C) 2020 2020-11-29 00:49 kalipy <kalipy@debian>
@@ -6,7 +9,7 @@ package com.bean;
  * Distributed under terms of the MIT license.
  */
 
-public class Book
+public class Book implements Serializable
 {
     //图书馆的主键
     private Integer id;

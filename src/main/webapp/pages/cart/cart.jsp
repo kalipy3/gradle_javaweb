@@ -31,7 +31,7 @@
                             <td>${item.count}</td>
                             <td>${item.book.price}</td>
                             <td>${item.totalPrice}</td>
-                            <td><a href="#">删除</a></td>
+                            <td><a href="client/CartServlet?method=delete&id=${item.book.id}">删除</a></td>
                         </tr>
                     </c:forEach>
                 </table>
