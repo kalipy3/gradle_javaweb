@@ -42,5 +42,22 @@ public class CartTest
         System.out.println("当前总价"+cart.getTotalMoney());
         System.out.println("当前购物车中的项目:"+cart.getAllItems());
 	}
+
+    @Test
+    public void test2() {
+        //大数运算问题
+        int i = 1;
+        for (int j = 1; j < 21; j++) {
+            i *= j;
+        }
+        System.out.println(i);
+
+        //浮点运算问题
+        double a = 0.01, b = 0.02;
+        System.out.println("0.01+0.02="+(a+b));
+        
+        double c = 0.01, d = 0.06;
+        System.out.println("0.01+0.06="+(c+d));
+    }
 }
 

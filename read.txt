@@ -362,3 +362,5 @@ BookStore项目
         Service:不用写
         
         Dao:不用写
+
+        double,float在进行运算的时候会产生精度问题
