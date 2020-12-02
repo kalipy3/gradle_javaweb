@@ -6,6 +6,8 @@
  */
 package com.servlet;
 
+import com.google.code.kaptcha.Constants;
+
 import java.io.IOException;
 import java.lang.reflect.Method;
 
@@ -29,6 +31,21 @@ public class UserServlet extends BaseServlet
     private UserService us = new UserServiceImpl();
     
     protected void regist(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
+        //获取用户输入的验证码，获取session中的验证码
+        //页面用户输入的验证码
+        String code = req.getParameter("code");
+        HttpSession session = req.getSession();
+        String sessionCode = (String)session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        System.out.println("页面的验证码："+code);
+        System.out.println("session中的验证码："+sessionCode);
+        //如果验证码一致则注册，否则回到注册页面并提示验证码错误
+        if (!sessionCode.equals(code)) {
+            //验证码错误
+            req.setAttribute("msg", "验证码错误");
+            req.getRequestDispatcher("/pages/user/regist.jsp").forward(req,resp);
+            return;
+        }
+
         User user = WebUtils.param2bean(req, new User());
         boolean b = us.regist(user);
         if (b) {
