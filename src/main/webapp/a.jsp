@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page isELIgnored="false" %>
 
 <html lang="en">
     <head>
@@ -6,7 +7,7 @@
         <title></title>
     </head>
     <body>
-        <img src="code.jpg" alt="">
-        <a href="a.jsp">去其它页面去验证码</a>
+        <!-- 此字段kaptcha.jar的Constants.class文件 -->
+        ${KAPTCHA_SESSION_KEY}
     </body>
 </html>
