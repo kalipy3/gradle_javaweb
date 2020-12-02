@@ -62,6 +62,10 @@ public class CartTest
         
         double c = 0.01, d = 0.06;
         System.out.println("0.01+0.06="+(c+d));
+        
+        BigDecimal bigDecimal1 = new BigDecimal(c);
+        BigDecimal bigDecimal2 = new BigDecimal(d);
+        System.out.println("big-->0.01+0.06="+(bigDecimal1.add(bigDecimal2)));
     }
     
     @Test
