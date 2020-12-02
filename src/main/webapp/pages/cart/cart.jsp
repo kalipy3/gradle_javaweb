@@ -17,6 +17,11 @@
                         return false;
                     } 
                 });
+                //jquery.js的 当input框内容发生变化，执行
+                $(".changeinput").change(function(){
+                    alert("gg");
+                    //发送请求，修改数量
+                })
             });
         </script>
     </head>
@@ -39,7 +44,9 @@
                     <c:forEach items="${cart.allItems}" var="item">
                         <tr>
                             <td>${item.book.title}</td>
-                            <td>${item.count}</td>
+                            <td>
+                                <input class="changeinput" type="text" style="width: 30px" name="count" value="${item.count}">
+                            </td>
                             <td>${item.book.price}</td>
                             <td>${item.totalPrice}</td>
                             <td><a class="delBtn" href="client/CartServlet?method=delete&id=${item.book.id}">删除</a></td>
