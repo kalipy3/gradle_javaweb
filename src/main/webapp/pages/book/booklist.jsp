@@ -23,7 +23,14 @@
                 <c:out value="${cart.totalCount}" default="0"></c:out>
                 件商品</span>
             <div>
-                您刚刚将<span style="color: red">时间剑圣</span>加入到购物车
+                <c:if test="${!empty title}">
+                    您刚刚将<span style="color: red">
+                        ${title}
+                    </span>加入到购物车
+                </c:if>
+                <c:if test="${empty title}">
+                    <span>&nbsp;</span>
+                </c:if>
             </div>
         </div>
 

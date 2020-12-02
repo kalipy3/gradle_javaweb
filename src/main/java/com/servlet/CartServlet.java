@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import com.bean.Book;
 import com.bean.Cart;
+import com.service.BookService;
+import com.service.BookServiceImpl;
 import com.servlet.BaseServlet;
 import com.utils.WebUtils;
 
@@ -21,6 +23,8 @@ import com.utils.WebUtils;
 
 public class CartServlet extends BaseServlet
 {
+    BookService bs = new BookServiceImpl();
+
     //将图书添加到购物车
     protected void add(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
         Book book = WebUtils.param2bean2(req, new Book());
@@ -33,7 +37,9 @@ public class CartServlet extends BaseServlet
             session.setAttribute("cart", cart);
         }
 
-        cart.addBook2Cart(book);
+        Book one = bs.getOne(book);
+        cart.addBook2Cart(one);
+        session.setAttribute("title", one.getTitle());
         String refer = req.getHeader("referer");
         resp.sendRedirect(refer);
     }

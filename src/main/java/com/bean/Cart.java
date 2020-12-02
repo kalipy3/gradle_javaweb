@@ -1,5 +1,6 @@
 package com.bean;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -18,7 +19,7 @@ import com.bean.CartItem;
  */
 
 //购物车，保存了每个购物项的信息，还封装了对购物车的操作方法
-public class Cart
+public class Cart implements Serializable
 {
     //保存的所有购物项
     private Map<Integer, CartItem> items = new LinkedHashMap<>(); 

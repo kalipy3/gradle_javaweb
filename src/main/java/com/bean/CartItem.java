@@ -1,5 +1,6 @@
 package com.bean;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import com.bean.Book;
@@ -11,7 +12,7 @@ import com.bean.Book;
  * Distributed under terms of the MIT license.
  */
 
-public class CartItem
+public class CartItem implements Serializable
 {
     //代表当前买的是哪本书
     private Book book;
