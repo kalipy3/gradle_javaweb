@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <title>书城首页</title>
         <%@include file="/include/base.jsp" %>
+        <%@include file="/include/user-info.jsp" %>
     </head>
     <body>
         <h1>网上书城</h1>

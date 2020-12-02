@@ -8,6 +8,17 @@
         <title>购物车</title>
         <%@include file="/include/base.jsp" %>
         <%@include file="/include/user-info.jsp" %>
+        <script type="text/javascript">
+            $(function(){
+                $(".delBtn").click(function(){
+                    var textEle = $(this).parents("tr").children(":first").text();
+                    if (!confirm("确定删除【"+textEle+"】吗?")) {
+                        //取消删除
+                        return false;
+                    } 
+                });
+            });
+        </script>
     </head>
     <body>
         <div id="main">
@@ -31,7 +42,7 @@
                             <td>${item.count}</td>
                             <td>${item.book.price}</td>
                             <td>${item.totalPrice}</td>
-                            <td><a href="client/CartServlet?method=delete&id=${item.book.id}">删除</a></td>
+                            <td><a class="delBtn" href="client/CartServlet?method=delete&id=${item.book.id}">删除</a></td>
                         </tr>
                     </c:forEach>
                 </table>
