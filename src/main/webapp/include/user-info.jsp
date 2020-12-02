@@ -6,7 +6,7 @@
     <div>
         <a href="pages/user/login.jsp">登录</a>
         <a href="pages/user/regist.jsp">注册</a>
-        <a href="">购物车</a>
+        <a href="pages/cart/cart.jsp">购物车</a>
         <a href="manager/BookManagerServlet?method=page">后台管理</a>
     </div>
 </c:if>
