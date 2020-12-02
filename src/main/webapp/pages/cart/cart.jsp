@@ -19,8 +19,12 @@
                 });
                 //jquery.js的 当input框内容发生变化，执行
                 $(".changeinput").change(function(){
-                    alert("gg");
                     //发送请求，修改数量
+                    var count = $(this).val();
+                    //获取要修改的id
+                    var id = $(this).attr("updateid");
+                    //发送请求修改数量
+                    location.href="client/CartServlet?method=update&id="+id+"&count="+count;
                 })
             });
         </script>
@@ -45,7 +49,8 @@
                         <tr>
                             <td>${item.book.title}</td>
                             <td>
-                                <input class="changeinput" type="text" style="width: 30px" name="count" value="${item.count}">
+                                <!-- updateid是一个我们自定义的属性 -->
+                                <input updateid="${item.book.id}" class="changeinput" type="text" style="width: 30px" name="count" value="${item.count}">
                             </td>
                             <td>${item.book.price}</td>
                             <td>${item.totalPrice}</td>

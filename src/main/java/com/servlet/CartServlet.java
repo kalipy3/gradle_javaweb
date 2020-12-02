@@ -54,5 +54,15 @@ public class CartServlet extends BaseServlet
         String refer = req.getHeader("referer");
         resp.sendRedirect(refer);
     }
+    
+    protected void update(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
+        //获取购物车
+        HttpSession session = req.getSession();
+        Cart cart = (Cart) session.getAttribute("cart");
+        cart.updateCount(req.getParameter("id"), req.getParameter("count"));
+        //返回cart.jsp
+        String refer = req.getHeader("referer");
+        resp.sendRedirect(refer);
+    }
 }
 

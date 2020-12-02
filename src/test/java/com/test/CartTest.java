@@ -40,7 +40,7 @@ public class CartTest
         System.out.println("当前购物车中的项目:"+cart.getAllItems());
         
         System.out.println("修改之后-----------------------------");
-        cart.updateCount(book3.getId().toString(), 3);
+        cart.updateCount(book3.getId().toString(), "3");
         System.out.println("当前总计"+cart.getTotalCount()+"本书");
         System.out.println("当前总价"+cart.getTotalMoney());
         System.out.println("当前购物车中的项目:"+cart.getAllItems());

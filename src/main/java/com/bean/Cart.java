@@ -109,10 +109,17 @@ public class Cart implements Serializable
     //修改数量
     //@param bookid 要修改的条目
     //@param count 修改后的数量
-    public void updateCount(String bookid, int count) {
-        int id = Integer.parseInt(bookid);
+    public void updateCount(String bookid, String count) {
+        int c = 1;
+        int id = -1;
+        try {
+            c = Integer.parseInt(count);
+            id = Integer.parseInt(bookid);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
         CartItem cartItem = items.get(id);
-        cartItem.setCount(count);
+        cartItem.setCount(c);
     }
 
     //清空购物车
