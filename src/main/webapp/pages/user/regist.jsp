@@ -23,6 +23,13 @@
             <input type="password" placeholder="请输入密码" name="password" />
             <label>邮箱：</label>
             <input type="text" placeholder="请输入邮箱" name="email" value="${param.email}"/>
+            <br/>
+            <br/>
+            <label>验证码：</label>
+            <input type="text" name="code" style="width: 150px;"/>
+            <img src="code.jpg" alt="" style="float: right; margin-right: 40px; width: 120px; height: 50px;">
+            <br/>
+            <br/>
             <input type="submit" value="注册">
         </form>
     </body>

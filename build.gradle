@@ -28,6 +28,9 @@ dependencies {
     compile "commons-dbutils:commons-dbutils:1.7"
     compile "commons-beanutils:commons-beanutils:1.9.3"
     compile "org.ow2.util.bundles:commons-logging-1.1.1:1.0.0"
+    compile "org.apache.taglibs:taglibs-standard-impl:1.2.5"
+    compile "org.apache.taglibs:taglibs-standard-spec:1.2.5"
+    compile "com.youkol.support.kaptcha:kaptcha:2.3.2"
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13'
