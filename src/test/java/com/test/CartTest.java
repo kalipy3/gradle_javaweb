@@ -1,5 +1,7 @@
 package com.test;
 
+import java.math.BigDecimal;
+
 import org.junit.Test;
 
 import com.bean.Book;
@@ -21,6 +23,7 @@ public class CartTest
    
     @Test
 	public void test1() {
+        System.out.println("test1-----------------------------");
 		Cart cart = new Cart();
         cart.addBook2Cart(book1);
         cart.addBook2Cart(book2);
@@ -45,6 +48,7 @@ public class CartTest
 
     @Test
     public void test2() {
+        System.out.println("test2-----------------------------");
         //大数运算问题
         int i = 1;
         for (int j = 1; j < 21; j++) {
@@ -58,6 +62,16 @@ public class CartTest
         
         double c = 0.01, d = 0.06;
         System.out.println("0.01+0.06="+(c+d));
+    }
+    
+    @Test
+    public void test3() {
+        System.out.println("test3-----------------------------");
+        BigDecimal bigDecimal = new BigDecimal(1);
+        for (int j = 1; j < 20000; j++) {
+            bigDecimal = bigDecimal.multiply(new BigDecimal(j));
+        }
+        System.out.println(bigDecimal);
     }
 }
 
