@@ -338,3 +338,27 @@ BookStore项目
         logout()
 
     3.根据session中是否有user对象就可以知道用户是否已经登录
+
+
+购物车
+    购物车：
+        暂存物品信息
+
+        实现：
+            1.基于cookie,把购买的物品，都保存成cookie存在浏览器里
+                cookie->都会携带。大量的数据被携带
+            2.基于session,把购买的物品，保存到session中(服务器)。浏览器关闭丢失购物车
+            3.基于数据库，把购买的物品保存到数据库中。
+
+        模型层：
+        控制器：
+            方法
+                void addBook2Cart(Book book);//在页面直接传入图书id
+                void deleteItem(String bookid);//删除一个购物车
+                List<CarItem> getItems();//获取所有的购物项，把这个交给页面
+                void updateCount(String bookid, int count);//修改某一项的数据，传入修改后的数量
+                void clear();//清空购物车
+        
+        Service:不用写
+        
+        Dao:不用写
