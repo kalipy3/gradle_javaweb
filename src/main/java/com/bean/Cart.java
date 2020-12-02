@@ -1,5 +1,6 @@
 package com.bean;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
@@ -50,12 +51,13 @@ public class Cart
     //获取总金额
     public double getTotalMoney() {
         List<CartItem> list = getAllItems();
-        double money = 0.0;
+        BigDecimal money = new BigDecimal(0.0+"");
         for (CartItem cartItem : list) {
             //将每项的总金额加起来
-            money += cartItem.getTotalPrice();
+            BigDecimal totalPrice = new BigDecimal(cartItem.getTotalPrice()+"");
+            money = money.add(totalPrice);
         }
-        return money;
+        return money.doubleValue();
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.bean;
 
+import java.math.BigDecimal;
+
 import com.bean.Book;
 
 /*
@@ -40,7 +42,11 @@ public class CartItem
 
     //计算总金额
     public double getTotalPrice() {
-        return getBook().getPrice()*getCount();
+        //将获取到的价格使用BigDecimal包装
+        BigDecimal price = new BigDecimal(getBook().getPrice()+"");
+        BigDecimal count = new BigDecimal(getCount()+"");
+        BigDecimal multiply = price.multiply(count);
+        return multiply.doubleValue();
     }
 
     public void setTotalPrice(double totalPrice) {
