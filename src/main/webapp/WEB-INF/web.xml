@@ -64,6 +64,14 @@
     <servlet>
         <servlet-name>KaptchaServlet</servlet-name>
         <servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+        <init-param>
+            <param-name>kaptcha.textproducer.char.string</param-name>
+            <param-value>你好大家我是上帝天下行走</param-value>
+        </init-param>
+        <init-param>
+            <param-name>kaptcha.textproducer.font.names</param-name>
+            <param-value>Noto Sans CJK TC</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>KaptchaServlet</servlet-name>

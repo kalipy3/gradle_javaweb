@@ -48,3 +48,22 @@ read.txt
     2.原理：
         和token机制一模一样
         在页面生成验证码图片-->给session中保存验证码实际的内容-->用户提交表单-->取出session中的内容以及页面带来的验证码进行匹配-->成功则提交-->是否重新回到注册页面
+
+    验证码配置：
+        web.xml中配置初始化属性
+            kaptcha.textproducer.font.names
+            验证码的字体
+            默认 Arial,Courier
+
+            kaptcha.textproducer.char.string
+            验证码中使用的字符
+            默认 adcde23456789gfynmpwx
+            还支持中文,eg:
+                <init-param>
+                    <param-name>kaptcha.textproducer.char.string</param-name>
+                    <param-value>你好大家</param-value>
+                </init-param>
+
+            kaptcha.textproducer.char.length
+            验证码中的字符数量
+            默认 5
