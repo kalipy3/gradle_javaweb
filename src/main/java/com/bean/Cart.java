@@ -1,11 +1,12 @@
 package com.bean;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
+import com.bean.Book;
 import com.bean.CartItem;
 
 /*
@@ -79,6 +80,43 @@ public class Cart
     }
 
     //定义操作购物车的其它方法
+    //把图书添加到购物车
+    public void addBook2Cart(Book book) {
+        //判断是否有当前图书，有则数量加一
+        CartItem item = items.get(book.getId());
+        if (item == null) {
+            //没有当前的购物项，则是第一次添加
+            CartItem cartItem = new CartItem();
+            cartItem.setBook(book);
+            cartItem.setCount(1);
+            
+            //将购物项加入
+            items.put(book.getId(), cartItem);
+        } else {
+            item.setCount(item.getCount()+1);
+        }
+    }
+
+    //从购物车中删除某一项
+    public void deleteItem(String bookid) {
+        int id = Integer.parseInt(bookid);
+        items.remove(id);
+    }
+
+    //修改数量
+    //@param bookid 要修改的条目
+    //@param count 修改后的数量
+    public void updateCount(String bookid, int count) {
+        int id = Integer.parseInt(bookid);
+        CartItem cartItem = items.get(id);
+        cartItem.setCount(count);
+    }
+
+    //清空购物车
+    public void clear() {
+        //清空map
+        items.clear();
+    }
 
 }
 
