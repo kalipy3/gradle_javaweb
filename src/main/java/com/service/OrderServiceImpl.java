@@ -1,8 +1,10 @@
 package com.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import com.bean.Book;
 import com.bean.Cart;
 import com.bean.CartItem;
 import com.bean.Order;
@@ -56,9 +58,19 @@ public class OrderServiceImpl implements OrderService
         orderDao.saveOrder(order);
         //4.保存订单项
         itemService.saveItem(orderItems);
-        //5.修改相应库存
+        //5.修改相应库存,改图书，改每一项
+        for (CartItem cartItem : allItems) {
+            //获取详细信息
+            Book book = cartItem.getBook();
+            //修改库存和销量
+            int count = cartItem.getCount();
+            book.setStock(book.getStock()-count);
+            book.setSales(book.getSales()+count);
+            //更新信息
+            bookService.update(book);
+        }
         
-        return null;
+        return orderId;
     }
 
     //修改订单状态

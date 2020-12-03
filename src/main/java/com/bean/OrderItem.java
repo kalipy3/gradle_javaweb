@@ -87,6 +87,14 @@ public class OrderItem
         this.totalPrice = totalPrice;
         this.orderId = orderId;
     }
+    
+    public OrderItem(String title, int count, double price, double totalPrice, String orderId) {
+        this.title = title;
+        this.count = count;
+        this.price = price;
+        this.totalPrice = totalPrice;
+        this.orderId = orderId;
+    }
 
 }
 

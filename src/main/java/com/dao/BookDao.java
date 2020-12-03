@@ -44,5 +44,7 @@ public interface BookDao
    
     //按照价格查找图书
     public List<Book> getPageByPrice(int pageNo, int pageSize, double minPrice, double maxPrice);
+
+    public void updateStockAndSales(Integer bookid, Integer stock, Integer sale);
 }
 

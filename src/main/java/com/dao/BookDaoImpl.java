@@ -95,5 +95,10 @@ public class BookDaoImpl extends BaseDao<Book> implements BookDao
         }
         return i;
     }
+    
+    @Override
+    public void updateStockAndSales(Integer bookid, Integer stock, Integer sale) {
+
+    }
 }
 
