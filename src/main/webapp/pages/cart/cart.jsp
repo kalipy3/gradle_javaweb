@@ -25,7 +25,13 @@
                     var id = $(this).attr("updateid");
                     //发送请求修改数量
                     location.href="client/CartServlet?method=update&id="+id+"&count="+count;
-                })
+                });
+                //如果绝得这个弹框提示有点low,可以考虑layerui
+                $("#clearBtn").click(function(){
+                    if (!confirm("确认清空购物车吗?")) {
+                        return false;
+                    }
+                });
             });
         </script>
     </head>
@@ -61,7 +67,7 @@
                 <div class="cart_info">
                     <span class="cart_span">购物车中共有${cart.totalCount}<span class="b_count>"</span>件商品</span>
                     <span class="cart_span">总金额<span class="b_price">${cart.totalMoney}</span>元</span>
-                    <span class="cart_span"><a href="client/CartServlet?method=clear">清空购物车</a></span>
+                    <span class="cart_span"><a id="clearBtn" href="client/CartServlet?method=clear">清空购物车</a></span>
                     <span class="cart_span"><a href="">去结账</a></span>
                 </div>
             </c:if>
