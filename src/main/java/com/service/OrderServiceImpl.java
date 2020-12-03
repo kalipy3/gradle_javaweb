@@ -1,11 +1,19 @@
 package com.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.bean.Cart;
+import com.bean.CartItem;
 import com.bean.Order;
+import com.bean.OrderItem;
+import com.bean.User;
 import com.dao.OrderDao;
 import com.dao.OrderDaoImpl;
+import com.service.BookService;
+import com.service.BookServiceImpl;
+import com.service.OrderItemService;
+import com.service.OrderItemServiceImpl;
 /*
  * OrderServiceImpl.java
  * Copyright (C) 2020 2020-12-03 18:59 kalipy <kalipy@debian>
@@ -16,10 +24,40 @@ import com.dao.OrderDaoImpl;
 public class OrderServiceImpl implements OrderService
 {
     OrderDao orderDao = new OrderDaoImpl();
+    OrderItemService itemService = new OrderItemServiceImpl();
+    BookService bookService = new BookServiceImpl();
 
     //结账
     @Override
-    public String checkout(Cart cart) {
+    public String checkout(Cart cart, User user) {
+        //结账，把购物车里面的数据库封装并保存
+        //1.封装订单对象
+        //orderId需要使用算法生成
+        long millis = System.currentTimeMillis();
+        //生成订单号
+        String orderId = millis + "" + user.getId();
+        Order order = new Order();
+        order.setCreateDate(new Date());
+        order.setOrderId(orderId);
+        order.setTotalMoney(cart.getTotalMoney());
+        order.setStatus(0);//0表示未发货
+        order.setUserId(user.getId());
+
+        //2.封装订单项
+        List<CartItem> allItems = cart.getAllItems();
+        //保存所有的订单项
+        List<OrderItem> orderItems = new ArrayList<>();
+        for (CartItem cartItem : allItems) {
+            //封装一个订单项
+            OrderItem item = new OrderItem(cartItem.getBook().getTitle(), cartItem.getCount(), cartItem.getBook().getPrice(), cartItem.getTotalPrice(), orderId);
+            orderItems.add(item);
+        }
+        //3.保存订单
+        orderDao.saveOrder(order);
+        //4.保存订单项
+        itemService.saveItem(orderItems);
+        //5.修改相应库存
+        
         return null;
     }
 

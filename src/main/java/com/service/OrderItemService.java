@@ -12,7 +12,7 @@ import com.bean.OrderItem;
 public interface OrderItemService
 {
     //保存订单项
-    public void saveItem(OrderItem orderItem);
+    public void saveItem(List<OrderItem> orderItem);
 
     //获取订单的所有订单项
     public List<OrderItem> getOrderItems(String orderid);

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bean.Cart;
 import com.bean.Order;
+import com.bean.User;
 
 /*
  * OrderService.java
@@ -15,7 +16,7 @@ import com.bean.Order;
 public interface OrderService
 {
     //结账
-    public String checkout(Cart cart);
+    public String checkout(Cart cart, User user);
 
     //修改订单状态
     public void updateStatus(String orderid, String status);
