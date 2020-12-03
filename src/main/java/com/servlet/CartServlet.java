@@ -30,12 +30,8 @@ public class CartServlet extends BaseServlet
         Book book = WebUtils.param2bean2(req, new Book());
         //购物车的整个内容Cart在session中保存
         HttpSession session = req.getSession();
-        Cart cart = (Cart) session.getAttribute("cart");
-        if (cart == null) {
-            //给session中放入购物车
-            cart = new Cart();
-            session.setAttribute("cart", cart);
-        }
+        //获取购物车
+        Cart cart = WebUtils.getCart(req);
 
         Book one = bs.getOne(book);
         cart.addBook2Cart(one);
@@ -46,19 +42,18 @@ public class CartServlet extends BaseServlet
     
     protected void delete(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
         //获取购物车
-        HttpSession session = req.getSession();
-        Cart cart = (Cart) session.getAttribute("cart");
+        Cart cart = WebUtils.getCart(req);
         //删除购物项，根据用户传来的bookid
         cart.deleteItem(req.getParameter("id"));
         //返回cart.jsp
         String refer = req.getHeader("referer");
         resp.sendRedirect(refer);
     }
-    
+   
+    //修改数量
     protected void update(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
         //获取购物车
-        HttpSession session = req.getSession();
-        Cart cart = (Cart) session.getAttribute("cart");
+        Cart cart = WebUtils.getCart(req);
         cart.updateCount(req.getParameter("id"), req.getParameter("count"));
         //返回cart.jsp
         String refer = req.getHeader("referer");

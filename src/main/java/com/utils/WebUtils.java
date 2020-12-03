@@ -9,8 +9,11 @@ import java.lang.reflect.Field;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
+
+import com.bean.Cart;
 
 public class WebUtils
 {
@@ -44,6 +47,19 @@ public class WebUtils
             e.printStackTrace();
         }
         return t;
+    }
+
+    //获取购物车
+    public static Cart getCart(HttpServletRequest req) {
+        //获取购物车
+        HttpSession session = req.getSession();
+        Cart cart = (Cart) session.getAttribute("cart");
+        if (cart == null) {
+            //给session中放入购物车
+            cart = new Cart();
+            session.setAttribute("cart", cart);
+        }
+        return cart;
     }
 }
 
