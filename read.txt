@@ -496,9 +496,14 @@ BookStore项目
                 查询自己的所有订单：
                     点击我的订单-->订单列表
                 查看订单详情：
+
                 确认收货：
         
         OrderManagerServlet
             管理员：
                 查看所有订单
+                    点击订单管理-->OrderManagerServlet查出所有订单-->返回到order_manager.jsp进行显示
+
+                    在页面对未发货的订单，可以点击发货
+
                 发货：

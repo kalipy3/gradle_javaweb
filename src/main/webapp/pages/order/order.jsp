@@ -38,6 +38,7 @@
                                     </c:when>
                                     <c:when test="${order.status==1}">
                                         已发货
+                                        <a href="#">确认收货</a>
                                     </c:when>
                                     <c:when test="${order.status==2}">
                                         交易完成

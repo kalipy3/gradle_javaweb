@@ -86,4 +86,13 @@
         <servlet-name>OrderClientServlet</servlet-name>
         <url-pattern>/client/OrderClientServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>OrderManagerServlet</servlet-name>
+        <servlet-class>com.servlet.OrderManagerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderManagerServlet</servlet-name>
+        <url-pattern>/manager/OrderManagerServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
