@@ -36,6 +36,9 @@ public class CartServlet extends BaseServlet
         Book one = bs.getOne(book);
         cart.addBook2Cart(one);
         session.setAttribute("title", one.getTitle());
+        //refer(请求地址)只是指上次的请求行
+        //get:请求地址包括请求数据
+        //post:不包括请求数据
         String refer = req.getHeader("referer");
         resp.sendRedirect(refer);
     }
