@@ -114,6 +114,8 @@ public class Cart implements Serializable
         int id = -1;
         try {
             c = Integer.parseInt(count);
+            //禁止改为负数
+            c = c>0?c:1;
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
