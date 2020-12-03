@@ -1,4 +1,9 @@
 package com.service;
+
+import java.util.List;
+import com.dao.OrderItemDao;
+import com.dao.OrderItemDaoImpl;
+import com.bean.OrderItem;
 /*
  * OrderItemServiceImpl.java
  * Copyright (C) 2020 2020-12-03 19:02 kalipy <kalipy@debian>
@@ -8,20 +13,18 @@ package com.service;
 
 public class OrderItemServiceImpl implements OrderItemService
 {
-	public OrderItemServiceImpl() {
-		
-	}
-    
+   OrderItemDao itemDao = new OrderItemDaoImpl();
+
     //保存订单项
     @Override
     public void saveItem(OrderItem orderItem) {
-
+        itemDao.saveOrderItem(orderItem);
     }
 
     //获取订单的所有订单项
     @Override
     public List<OrderItem> getOrderItems(String orderid) {
-
+        return itemDao.getOrderItems(orderid);
     }
 }
 
