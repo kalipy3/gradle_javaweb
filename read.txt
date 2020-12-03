@@ -436,6 +436,26 @@ BookStore项目
                 int count;//购买数量
                 double total;//总金额
                 String orderId: 关联的订单
+
+            建表(照着两个dao类)：
+                create table bs_order(
+                    order_id char(50) primary key,
+                    create_date datetime,
+                    total_money double(11, 2),
+                    status int(2),
+                    user_id int(11),
+                    foreign key (user_id) references bs_user(id)
+                 )
+
+                create table bs_order_item(
+                    id int(11) primary key auto_increment,
+                    title varchar(200),
+                    count int(11),
+                    price double(11, 2),
+                    total_price double(11, 2),
+                    order_id char(50),
+                    foreign key (order_id) references bs_order(order_id)
+                )
                 
 
     3.编写dao

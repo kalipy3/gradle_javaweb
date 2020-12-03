@@ -8,6 +8,7 @@ package com.bean;
 
 public class OrderItem
 {
+    private Integer id;
     private String title;//购买的书名
     private int count;//购买的数量
     private double price;//图书的价格
@@ -58,23 +59,33 @@ public class OrderItem
         this.orderId = orderId;
     }
 
-    public OrderItem(String title, int count, double price, double totalPrice, String orderId) {
-        this.title = title;
-        this.count = count;
-        this.price = price;
-        this.totalPrice = totalPrice;
-        this.orderId = orderId;
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
         return "OrderItem{" +
-            "title = " + getTitle() +
+            "id = " + getId() +
+            ", title = " + getTitle() +
             ", count = " + getCount() +
             ", price = " + getPrice() +
             ", totalPrice = " + getTotalPrice() +
             ", orderId = " + getOrderId() +
             "}";
+    }
+
+    public OrderItem(Integer id, String title, int count, double price, double totalPrice, String orderId) {
+        this.id = id;
+        this.title = title;
+        this.count = count;
+        this.price = price;
+        this.totalPrice = totalPrice;
+        this.orderId = orderId;
     }
 
 }
