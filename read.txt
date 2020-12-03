@@ -460,13 +460,32 @@ BookStore项目
 
     3.编写dao
         OrderDao//操作订单
-            saveOrder(Order order);//保存订单
-            updateStatus(Order order);//修改订单状态
-            getOrderList();//查出所有的订单(管理员用)
-            getOrderByUserId(Integer userid);//查出某个用户的所有订单(用户用)
+            int saveOrder(Order order);//保存订单
+            int updateStatus(Order order);//修改订单状态
+            List<Order> getOrderList();//查出所有的订单(管理员用)
+            List<Order> getOrderByUserId(Integer userid);//查出某个用户的所有订单(用户用)
 
         OrderItemDao//
             getOrderItems(String orderId);//根据订单号查询订单所有项
+            saveItems(OrderItem item);//保存订单项
 
     4.编写service
+        OrderService:订单操作
+            String checkout(Cart cart);//(结账)保存订单,返回订单号
+                1.生成订单号
+                2.订单详情(总价，日期，状态)
+                3.保存订单项
+                4.修改库存及销量
+    
+            update(String orderId, String status)//修改订单状态
+    
+            getAllOrder()//管理员
+            getMyOrders(Integer userId);//获取某个用户的订单
+    
+        OrderItemService:
+            getOrderItems(String orderId);//根据订单号查询订单所有项
+            saveItems(OrderItem item);//保存某个订单项
+
     5.编写servlet
+        OrderServlet
+            service.save();
