@@ -114,6 +114,11 @@ public class Cart implements Serializable
         int id = -1;
         try {
             c = Integer.parseInt(count);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        
+        try {
             id = Integer.parseInt(bookid);
         } catch (NumberFormatException e) {
             e.printStackTrace();
