@@ -28,6 +28,7 @@
                     您刚刚将<span style="color: red">
                         ${title}
                     </span>加入到购物车
+                    <c:remove var="title" scope="session"></c:remove>
                 </c:if>
                 <c:if test="${empty title}">
                     <span>&nbsp;</span>
