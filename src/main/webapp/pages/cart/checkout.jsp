@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" %>
 
 <html lang="en">
     <head>
@@ -12,7 +14,7 @@
         </div>
 
         <div id="main">
-            <h1>你的订单已结算，订单号为1122334555</h1>
+            <h1>你的订单已结算，订单号为${orderId}</h1>
         </div>
     </body>
 </html>

@@ -488,4 +488,15 @@ BookStore项目
 
     5.编写servlet
         OrderServlet
-            service.save();
+            用户：
+                结算:
+                    1.判断用户是否登录
+                    2.登录才结算，否则返回登录页面
+                查询所有订单：
+                查看订单详情：
+                确认收货：
+        
+        OrderManagerServlet
+            管理员：
+                查看所有订单
+                发货：

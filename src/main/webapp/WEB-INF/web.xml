@@ -77,4 +77,13 @@
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/client/CartServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>OrderClientServlet</servlet-name>
+        <servlet-class>com.servlet.OrderClientServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderClientServlet</servlet-name>
+        <url-pattern>/client/OrderClientServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
