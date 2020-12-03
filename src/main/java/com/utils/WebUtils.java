@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.beanutils.BeanUtils;
 
 import com.bean.Cart;
+import com.bean.User;
 
 public class WebUtils
 {
@@ -60,6 +61,12 @@ public class WebUtils
             session.setAttribute("cart", cart);
         }
         return cart;
+    }
+
+    public static User getLoginUser(HttpServletRequest req) {
+        //1.验证用户是否登录
+        HttpSession session = req.getSession();
+        return (User) session.getAttribute("user");
     }
 }
 
