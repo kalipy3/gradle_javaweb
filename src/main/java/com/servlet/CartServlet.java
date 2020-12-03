@@ -59,5 +59,15 @@ public class CartServlet extends BaseServlet
         String refer = req.getHeader("referer");
         resp.sendRedirect(refer);
     }
+   
+    //清空购物车
+    protected void clear(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
+        //获取购物车
+        Cart cart = WebUtils.getCart(req);
+        cart.clear();
+        //返回cart.jsp
+        String refer = req.getHeader("referer");
+        resp.sendRedirect(refer);
+    }
 }
 
