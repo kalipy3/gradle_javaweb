@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.bean.Cart;
 import com.bean.Order;
 import com.bean.User;
+import com.bean.Constants;
 import com.service.OrderService;
 import com.service.OrderServiceImpl;
 import com.servlet.BaseServlet;
@@ -32,6 +33,17 @@ public class OrderManagerServlet extends BaseServlet
         List<Order> list = orderService.getAllOrder();
         req.setAttribute("orders", list);
         req.getRequestDispatcher("/pages/manager/order_manager.jsp").forward(req, resp);
+    }
+    
+    //发货
+    protected void deliver (HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
+        //从页面获取订单号
+        String orderid = req.getParameter("orderid");
+        //修改订单状态
+        orderService.updateStatus(orderid, Constants.DELIVERING+"");
+        //回到页面
+        String refer = req.getHeader("referer");
+        resp.sendRedirect(refer);
     }
 }
 

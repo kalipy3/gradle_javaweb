@@ -30,7 +30,7 @@
                         <td>
                             <c:choose>
                                 <c:when test="${order.status == 0}">
-                                    <a href="#">点击发货</a>    
+                                    <a href="manager/OrderManagerServlet?method=deliver&orderid=${order.orderId}">点击发货</a>    
                                 </c:when>
                                 <c:when test="${order.status == 1}">
                                     等待收货
