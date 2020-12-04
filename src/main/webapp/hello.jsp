@@ -6,6 +6,9 @@
         <title></title>
     </head>
     <body>
+        <%
+        System.out.println("我是hello.jsp-->3");
+        %>
         <h1>我是hello.jsp</h1>
     </body>
 </html>

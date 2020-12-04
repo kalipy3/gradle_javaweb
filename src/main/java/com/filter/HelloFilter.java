@@ -36,7 +36,10 @@ public class HelloFilter implements Filter
         if (money != null) {
             //带了钱，让她访问vtuber页面
             //将请求放行
+            System.out.println("我是请求放行之前1..");
             chain.doFilter(req, resp);
+            System.out.println("我是请求放行之后2..");
+            resp.getWriter().write("HelloFilter..");
         } else {
             //没带钱，提示你回家要钱去
             resp.getWriter().write("no money, no mm!");
