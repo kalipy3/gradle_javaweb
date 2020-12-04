@@ -10,6 +10,7 @@
     <body>
         <div id="header">
             <span>我的订单</span>
+            <%@include file="/include/base.jsp" %>
             <%@include file="/include/user-info.jsp" %>
         </div>
 
@@ -37,8 +38,7 @@
                                         未发货
                                     </c:when>
                                     <c:when test="${order.status==1}">
-                                        已发货
-                                        <a href="#">确认收货</a>
+                                        <a href="client/OrderClientServlet?method=received&orderid=${order.orderId}">确认收货</a>
                                     </c:when>
                                     <c:when test="${order.status==2}">
                                         交易完成

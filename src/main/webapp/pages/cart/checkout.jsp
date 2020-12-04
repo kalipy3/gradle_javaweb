@@ -10,6 +10,7 @@
     <body>
         <div id="header">
             <span>结算</span>
+            <%@include file="/include/base.jsp" %>
             <%@include file="/include/user-info.jsp" %>
         </div>
 
