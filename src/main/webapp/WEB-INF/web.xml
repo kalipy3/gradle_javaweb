@@ -30,5 +30,18 @@
         <!-- 过滤哪些请求 表示访问hello.jsp的时候会被过滤器拦截 -->
         <url-pattern>/hello.jsp</url-pattern>    
     </filter-mapping>
+    
+    <filter>
+        <filter-name>Afilter</filter-name>
+        <filter-class>com.filter.Afilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Afilter</filter-name>
+        <!-- url-pattern
+            1.精确匹配
+                写要拦截的资源的详细路径 /hello.jsp  /page/a.jsp
+        -->
+        <url-pattern>/page/a.jsp</url-pattern>    
+    </filter-mapping>
 
 </web-app>
