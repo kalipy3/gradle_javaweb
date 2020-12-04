@@ -51,6 +51,7 @@
             ERROR:发生错误的
         -->
         <dispatcher>FORWARD</dispatcher>
+        <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
 
     <filter>
