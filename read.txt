@@ -40,4 +40,28 @@ Filter 过滤器
                              | chain.doFilter() |<-------------
                                -----------------
 
-Afilter Bfilter同时拦截a.jsp
+Afilter Bfilter同时拦截a.jsp:
+
+                 req->a.jsp
+    浏览器------------------> BFilter
+                              输出3
+                              chain.doFilter(req,resp)--------->
+             <--------------- 输出4                             |
+                                ^                               |
+                                |                               |
+                                |                               |
+                                |                               |
+                              AFilter                           |
+                              输出1                             |
+                              chain.doFilter(req,resp)<---------
+                              输出2         |
+                                ^           |
+                                |           |
+                                |           |
+                              a.jsp(resp)  \|/
+                              输出out:我是a.jsp
+
+顺序为：输出3 输出1 out 输出2 输出4
+
+                                
+
