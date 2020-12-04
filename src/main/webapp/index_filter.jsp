@@ -9,5 +9,6 @@
         <a href="hello.jsp">去hello.jsp,没带钱</a><br/>
         <!-- 只要带上money参数就代表有钱了 -->
         <a href="hello.jsp?money=1">去hello.jsp,带上钱</a>
+        <a href="TestServlet">我要去test.jsp</a>
     </body>
 </html>

@@ -42,7 +42,7 @@
     </filter>
     <filter-mapping>
         <filter-name>Bfilter</filter-name>
-        <url-pattern>/a.jsp</url-pattern>    
+        <url-pattern>/test.jsp</url-pattern>    
     </filter-mapping>
 
     <filter>
@@ -67,5 +67,14 @@
         -->
         <url-pattern>/a.jsp</url-pattern>    
     </filter-mapping>
+    
+    <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>com.filter.TestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/TestServlet</url-pattern>
+    </servlet-mapping>
     
 </web-app>

@@ -20,7 +20,7 @@ public class Bfilter implements Filter
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
         System.out.println("我是Bfilter.doFilter()..3");
-        chain.doFilter(req, resp);
+        //chain.doFilter(req, resp);
         System.out.println("我是Bfilter.doFilter()..4");
     }
 }
