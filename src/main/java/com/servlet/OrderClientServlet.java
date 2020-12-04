@@ -29,23 +29,15 @@ public class OrderClientServlet extends BaseServlet
     OrderService orderService = new OrderServiceImpl();
     protected void checkout(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
         HttpSession session = req.getSession();
+        Cart cart = WebUtils.getCart(req);
         //获取已经登录的用户
         User loginUser = WebUtils.getLoginUser(req);
-        //2.登录则结算
-        if (loginUser != null) {
-            //代表用户已经登录i
-            Cart cart = WebUtils.getCart(req);
-            //结算 返回订单号
-            String orderid = orderService.checkout(cart, loginUser);
-            session.setAttribute("orderId", orderid);
-            resp.sendRedirect(req.getContextPath() + "/pages/cart/checkout.jsp");
-        } else {
-            //3.否则直接返回登录页面登录
-            req.setAttribute("msg", "此操作需要登录，请先登录!");
-            req.getRequestDispatcher("/pages/user/login.jsp").forward(req, resp);
-        }
+        //结算 返回订单号
+        String orderid = orderService.checkout(cart, loginUser);
+        session.setAttribute("orderId", orderid);
+        resp.sendRedirect(req.getContextPath() + "/pages/cart/checkout.jsp");
     }
-    
+
     //列出用户当前所有订单
     protected void list(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
         //获取已经登录的用户
@@ -55,7 +47,7 @@ public class OrderClientServlet extends BaseServlet
         req.setAttribute("orders", list);
         req.getRequestDispatcher("/pages/order/order.jsp").forward(req, resp);
     }
-    
+
     //确认收货
     protected void received(HttpServletRequest req,HttpServletResponse resp) throws ServletException,IOException {
         String orderid = req.getParameter("orderid");
