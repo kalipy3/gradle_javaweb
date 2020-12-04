@@ -62,12 +62,13 @@ public class OrderServiceImpl implements OrderService
         for (CartItem cartItem : allItems) {
             //获取详细信息
             Book book = cartItem.getBook();
+            Book one = bookService.getOne(book);
             //修改库存和销量
             int count = cartItem.getCount();
-            book.setStock(book.getStock()-count);
-            book.setSales(book.getSales()+count);
+            one.setStock(one.getStock()-count);
+            one.setSales(one.getSales()+count);
             //更新信息
-            bookService.update(book);
+            bookService.update(one);
         }
         
         return orderId;
