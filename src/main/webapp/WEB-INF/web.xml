@@ -37,6 +37,15 @@
     </filter-mapping>
     
     <filter>
+        <filter-name>Bfilter</filter-name>
+        <filter-class>com.filter.Bfilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Bfilter</filter-name>
+        <url-pattern>/a.jsp</url-pattern>    
+    </filter-mapping>
+
+    <filter>
         <filter-name>Afilter</filter-name>
         <filter-class>com.filter.Afilter</filter-class>
         <init-param>
@@ -59,13 +68,4 @@
         <url-pattern>/a.jsp</url-pattern>    
     </filter-mapping>
     
-    <filter>
-        <filter-name>Bfilter</filter-name>
-        <filter-class>com.filter.Bfilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>Bfilter</filter-name>
-        <url-pattern>/a.jsp</url-pattern>    
-    </filter-mapping>
-
 </web-app>
