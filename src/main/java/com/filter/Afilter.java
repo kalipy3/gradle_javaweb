@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -21,24 +22,23 @@ public class Afilter implements Filter
 {
     @Override 
     public void init(FilterConfig filterConfig) throws ServletException {
+        //filterConfig是封装filter配置信息的对象
+        String filterName = filterConfig.getFilterName();//filter的别名
+        //filter的初始化参数
+        String filterInitParameter = filterConfig.getInitParameter("username");
+        //ServletContext-->对应我们的web应用
+        ServletContext servletContext = filterConfig.getServletContext();
+        //获取web初始化参数
+        String initParameter = servletContext.getInitParameter("user");
 
+        System.out.println("filter别名:" + filterName);
+        System.out.println("filter初始化参数:" + filterInitParameter);
+        System.out.println("获取servletContext:" + servletContext);
+        System.out.println("通过servletContext对象获取全局初始化参数:" + initParameter);
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest) request;
-        String uri = req.getRequestURI();
-        StringBuffer url = req.getRequestURL();
-        System.out.println("过来的请求uri:" + uri);
-        System.out.println("过来的请求url:" + url.toString());
-        System.out.println("我是Afilter..doFilter()..");
-
-        //只拦截page下的所有jsp 虽然web.xml配置会拦截page下的所有
-        if (uri.endsWith("jsp")) {
-            System.out.println("jsp结尾的，我就拦截了");
-        } else {
-            chain.doFilter(request, response);
-        }
     }
 
     @Override 
