@@ -47,7 +47,8 @@
             3.后缀名匹配
                 所有给定的后缀都拦截
         -->
-        <url-pattern>*.jsp</url-pattern>    
+        <url-pattern>/page/*</url-pattern>    
+        <url-pattern>/a.jsp</url-pattern>    
     </filter-mapping>
 
 </web-app>
