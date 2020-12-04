@@ -70,6 +70,8 @@ public class OrderServiceImpl implements OrderService
             //更新信息
             bookService.update(one);
         }
+        //6.清空购物车
+        cart.clear();
         
         return orderId;
     }
