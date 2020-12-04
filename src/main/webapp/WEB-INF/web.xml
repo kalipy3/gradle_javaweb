@@ -56,7 +56,15 @@
             3.后缀名匹配
                 所有给定的后缀都拦截
         -->
-        <url-pattern>/page/*</url-pattern>    
+        <url-pattern>/a.jsp</url-pattern>    
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>Bfilter</filter-name>
+        <filter-class>com.filter.Bfilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Bfilter</filter-name>
         <url-pattern>/a.jsp</url-pattern>    
     </filter-mapping>
 

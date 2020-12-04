@@ -38,7 +38,9 @@ public class Afilter implements Filter
     }
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
+        System.out.println("我是Afilter.doFilter()..");
+        chain.doFilter(req, resp);
     }
 
     @Override 
