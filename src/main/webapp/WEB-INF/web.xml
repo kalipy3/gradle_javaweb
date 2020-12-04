@@ -42,7 +42,15 @@
     </filter>
     <filter-mapping>
         <filter-name>Bfilter</filter-name>
-        <url-pattern>/test.jsp</url-pattern>    
+        <url-pattern>/test.jsp</url-pattern> 
+        <!--
+        dispatcher
+            FORWARD:拦截转发过来的
+            INCLUDE:拦截包含的
+            REQUEST:直接请求的,直接请求这个地址会被拦截
+            ERROR:发生错误的
+        -->
+        <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
 
     <filter>
