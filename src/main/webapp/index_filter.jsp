@@ -10,6 +10,9 @@
         <!-- 只要带上money参数就代表有钱了 -->
         <a href="hello.jsp?money=1">去hello.jsp,带上钱</a>
         <a href="TestServlet">我要去test.jsp</a>
-        <%@include file="test.jsp" %>
+        <!-- 静态包含 -->
+        <%-- <%@include file="test.jsp" %> --%>
+        <!-- 动态包含 -->
+        <jsp:include page="test.jsp"></jsp:include>
     </body>
 </html>
