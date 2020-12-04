@@ -40,8 +40,11 @@
         <!-- url-pattern
             1.精确匹配
                 写要拦截的资源的详细路径 /hello.jsp  /page/a.jsp
+
+            2.路径匹配 /路径名/* *代表所有
+                拦截所有访问(路径名)下的资源
         -->
-        <url-pattern>/page/a.jsp</url-pattern>    
+        <url-pattern>/page/*</url-pattern>    
     </filter-mapping>
 
 </web-app>
