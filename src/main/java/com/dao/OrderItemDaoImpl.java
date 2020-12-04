@@ -32,5 +32,21 @@ public class OrderItemDaoImpl extends BaseDao<OrderItem> implements OrderItemDao
         String sql = "insert into bs_order_item(title, count, price, total_price, order_id) values(?,?,?,?,?)";
         return update(sql, item.getTitle(), item.getCount(), item.getPrice(), item.getTotalPrice(), item.getOrderId());
     }
+
+    //批量执行保存
+    @Override
+    public int saveBatch(List<OrderItem> params) {
+        String sql = "insert into bs_order_item(title, count, price, total_price, order_id) values(?,?,?,?,?)";
+        Object[][] objs = new Object[params.size()][5];
+        //objs[0] = new Object[]{}
+        int count = 0;
+        for (OrderItem item : params) {
+            objs[count++] = new Object[]{item.getTitle(), item.getCount(), item.getPrice(), item.getTotalPrice(), item.getOrderId()};
+        }
+        batch(sql, objs);
+
+        return 1;
+    }
+
 }
 

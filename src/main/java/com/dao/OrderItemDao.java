@@ -18,5 +18,7 @@ public interface OrderItemDao
 
     //保存某个订单项
     public int saveOrderItem(OrderItem item);
+    
+    public int saveBatch(List<OrderItem> item);
 }
 

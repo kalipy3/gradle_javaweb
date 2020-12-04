@@ -90,5 +90,21 @@ public class BaseDao<T>
         return query;
     }
 
+    //批处理
+    public int batch(String sql, Object[][] params) {
+        Connection connection = JDBCUtils.getConnection();
+        try {
+            //Object[5][] params
+            //第一维的长度就代表sql的执行次数 第二维专门用来存放当前sql执行用的可变参数
+            runner.batch(connection, sql, params);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.releaseConnection(connection);
+        }
+
+        return 0;
+    }
+
 }
 

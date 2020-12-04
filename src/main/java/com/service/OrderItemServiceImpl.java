@@ -18,9 +18,10 @@ public class OrderItemServiceImpl implements OrderItemService
     //保存订单项
     @Override
     public void saveItem(List<OrderItem> orderItem) {
-        for (OrderItem orderItem2 : orderItem) {
-            itemDao.saveOrderItem(orderItem2);
-        }
+        //for (OrderItem orderItem2 : orderItem) {
+        //    itemDao.saveOrderItem(orderItem2);
+        //}
+        itemDao.saveBatch(orderItem);
     }
 
     //获取订单的所有订单项
